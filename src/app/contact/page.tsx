@@ -52,10 +52,10 @@ export default function ContactUs() {
       
       if (result.success) {
         console.log('✅ Message sent successfully to yyradhe751@gmail.com');
-        alert(`✅ Thank you ${formData.name}! Your message has been sent successfully.\n\n📧 We've received your ${formData.service} inquiry and will respond within 24 hours.\n\n📱 For urgent matters, call: +91-9425094250`);
+        alert(`✅ Thank you ${formData.name}! Your message has been sent successfully.\n\n📧 We've received your ${formData.service} inquiry and will respond within 24 hours.\n\n📱 For urgent matters, call: +91-9522220892`);
       } else {
         console.log('⚠️ Message delivery issue:', result);
-        alert(`⚠️ There was an issue sending your message.\n\n📞 Please call us directly: +91-9425094250\n📧 Or email: yyradhe751@gmail.com`);
+        alert(`⚠️ There was an issue sending your message.\n\n📞 Please call us directly: +91-9522220892\n📧 Or email: yyradhe751@gmail.com`);
       }
       
       // Reset form
@@ -70,7 +70,7 @@ export default function ContactUs() {
       
     } catch (error) {
       console.error('❌ Contact form error:', error);
-      alert(`❌ Unable to send message online.\n\n📞 Please contact us directly:\nPhone: +91-9425094250\nEmail: yyradhe751@gmail.com`);
+      alert(`❌ Unable to send message online.\n\n📞 Please contact us directly:\nPhone: +91-9522220892\nEmail: yyradhe751@gmail.com`);
     } finally {
       setIsSubmitting(false);
     }
@@ -91,8 +91,7 @@ export default function ContactUs() {
       icon: '📞',
       title: 'Call Us',
       details: [
-        '+91-9425094250',
-        '+91-731-4567890',
+        '+91-9522220892',
         'Mon-Sat: 9:00 AM - 7:00 PM'
       ],
       color: 'green'
@@ -122,28 +121,28 @@ export default function ContactUs() {
   const departments = [
     {
       name: 'Admissions Office',
-      phone: '+91-9425094250',
+      phone: '+91-9522220892',
       email: 'admissions@litcinstitute.com',
       timing: '9:00 AM - 6:00 PM',
       icon: '🎓'
     },
     {
       name: 'Technical Support',
-      phone: '+91-731-4567891',
+      phone: '+91-9522220892',
       email: 'support@litcinstitute.com',
       timing: '24/7 Available',
       icon: '🔧'
     },
     {
       name: 'Career Counseling',
-      phone: '+91-731-4567892',
+      phone: '+91-9522220892',
       email: 'counselor@litcinstitute.com',
       timing: '10:00 AM - 5:00 PM',
       icon: '💼'
     },
     {
       name: 'Corporate Training',
-      phone: '+91-731-4567893',
+      phone: '+91-9522220892',
       email: 'corporate@litcinstitute.com',
       timing: '9:00 AM - 6:00 PM',
       icon: '🏢'
@@ -193,10 +192,10 @@ export default function ContactUs() {
               Schedule Campus Visit
             </button>
             <a 
-              href="tel:+919425094250"
+              href="tel:+919522220892"
               className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold rounded-xl border border-white/20 hover:bg-white/20 transition-all text-center"
             >
-              Call Now: +91-9425094250
+              Call Now: +91-9522220892
             </a>
           </div>
         </div>

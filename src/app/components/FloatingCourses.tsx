@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import Link from "next/link";
 import EnrollmentModal from './EnrollmentModal';
 import ConsultationModal from './consultation/ConsultationModal';
@@ -209,7 +209,7 @@ const demandCourses: Course[] = [
   }
 ];
 
-export default function FloatingCourses() {
+const FloatingCourses = memo(function FloatingCourses() {
   const [hoveredCourse, setHoveredCourse] = useState<number | null>(null);
   const [currentFloatingIndex, setCurrentFloatingIndex] = useState(0);
   const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
@@ -594,4 +594,8 @@ export default function FloatingCourses() {
       />
     </section>
   );
-}
+});
+
+FloatingCourses.displayName = 'FloatingCourses';
+
+export default FloatingCourses;

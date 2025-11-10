@@ -1,14 +1,16 @@
 
 "use client";
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useEffect, lazy, Suspense, memo, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Navbar from './components/Navbar';
+import AggressivePrefetch from './components/AggressivePrefetch';
 import { FaFacebook, FaInstagram, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 // Optimize heavy components - Load immediately with SSR
 import FeaturedCourses from './components/FeaturedCourses';
 import FloatingCourses from './components/FloatingCourses';
+import StudentCertifications from './components/StudentCertifications';
 
 const ChatBot = dynamic(() => import('./components/ChatBot'), {
   loading: () => null,
@@ -42,7 +44,7 @@ export default function Home() {
   const [selectedCourse, setSelectedCourse] = useState<any>(null);
   const [policyModal, setPolicyModal] = useState<{isOpen: boolean; type: string}>({isOpen: false, type: ''});
 
-  // Scroll progress tracker with throttling for better performance
+  // Optimized scroll progress tracker
   useEffect(() => {
     let ticking = false;
     
@@ -140,6 +142,9 @@ export default function Home() {
 
   return (
     <>
+      {/* Aggressive Prefetch Component */}
+      <AggressivePrefetch />
+      
       {/* Scroll Progress Indicator */}
       <div className="fixed top-0 left-0 w-full h-1 z-40">
         <div 
@@ -261,7 +266,8 @@ export default function Home() {
       {/* Featured Courses inspired by Grras.com */}
       <FeaturedCourses />
 
-
+      {/* Student Certifications Section */}
+      <StudentCertifications />
 
       {/* Why Choose Us Section */}
       <section className="relative py-20 px-4 animate-fade-in-up overflow-hidden">

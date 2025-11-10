@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, memo, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import EnrollmentModal from './EnrollmentModal';
 import { useCart } from '../context/CartContext';
 
-const FeaturedCourses = () => {
+const FeaturedCourses = memo(() => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const [isEnrollModalOpen, setIsEnrollModalOpen] = useState(false);
@@ -557,6 +557,8 @@ const FeaturedCourses = () => {
       />
     </section>
   );
-};
+});
+
+FeaturedCourses.displayName = 'FeaturedCourses';
 
 export default FeaturedCourses;

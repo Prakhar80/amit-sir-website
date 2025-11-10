@@ -54,7 +54,7 @@ export default function Navbar() {
       >
               <div className="flex items-center justify-between px-6 py-3">
         {/* Enhanced Logo with Floating Particles */}
-        <Link href="/" className="flex items-center gap-4 group relative">
+        <Link href="/" prefetch={true} className="flex items-center gap-4 group relative">
           {/* Floating particles around logo */}
           <div className="absolute -inset-10 pointer-events-none">
             <div className="absolute top-2 left-3 w-2 h-2 bg-blue-400/40 rounded-full animate-bounce animate-float-slow" />
@@ -176,7 +176,7 @@ export default function Navbar() {
               },
               { 
                 href: "/courses/microsoft", 
-                label: "Microsoft", 
+                label: "Microsoft (Online)", 
                 icon: "🪟",
                 subItems: [
                   { href: "/microsoft/az-900", label: "Microsoft Azure Fundamentals (AZ-900)", icon: "☁️" },
@@ -192,7 +192,7 @@ export default function Navbar() {
               },
               { 
                 href: "/courses/devops", 
-                label: "DevOps", 
+                label: "DevOps (Online)", 
                 icon: "🚀",
                 subItems: [
                   { href: "/devops/jenkins-certified-engineer", label: "Jenkins Certified Engineer (JCE)", icon: "⚙️" },
@@ -202,15 +202,12 @@ export default function Navbar() {
                   { href: "/devops/aws-devops-engineer", label: "AWS Certified DevOps Engineer Professional (DOP-C02)", icon: "☁️" },
                   { href: "/devops/google-cloud-devops", label: "Google Cloud Professional Cloud DevOps Engineer", icon: "🌐" },
                   { href: "/kubernetes/certified-kubernetes-administrator", label: "Certified Kubernetes Administrator (CKA)", icon: "☸️" },
-                  { href: "/docker/docker-certified-associate", label: "Docker Certified Associate (DCA)", icon: "🐳" },
-                  { href: "/devops/prometheus-certified-associate", label: "Prometheus Certified Associate (PCA)", icon: "📊" },
-                  { href: "/devops/chef-fundamentals", label: "Chef Fundamentals Certification", icon: "👨‍🍳" },
-                  { href: "/devops/puppet-certified-professional", label: "Puppet Certified Professional (PCP)", icon: "🎭" }
+                  { href: "/docker/docker-certified-associate", label: "Docker Certified Associate (DCA)", icon: "🐳" }
                 ]
               },
               { 
                 href: "/courses/cybersecurity", 
-                label: "Cybersecurity", 
+                label: "Cybersecurity (Online)", 
                 icon: "🔒",
                 subItems: [
                   { href: "/cisco/ccst-networking", label: "CCST Networking (100-150)", icon: "🌟" },
@@ -312,17 +309,16 @@ export default function Navbar() {
 function NavLink({ href, label }: { href: string; label: string }) {
   return (
     <Link 
-      href={href} 
-      className="relative px-4 py-2 text-white/90 font-bold text-sm hover:text-white transition-all duration-300 group rounded-lg hover:bg-white/10 hover:backdrop-blur-md hover:scale-105 hover:shadow-lg border border-transparent hover:border-white/20 font-poppins"
+      href={href}
+      prefetch={true}
+      className="relative px-4 py-2.5 text-white/95 font-semibold text-sm hover:text-white transition-all duration-300 group overflow-hidden rounded-xl font-poppins"
     >
-      <span className="relative z-10">{label}</span>
-      <span className="absolute left-1/2 -translate-x-1/2 -bottom-1 w-0 h-0.5 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 group-hover:w-4/5 transition-all duration-500 rounded-full shadow-lg" />
-      <span className="absolute inset-0 bg-gradient-to-r from-blue-400/0 via-purple-400/0 to-blue-400/0 group-hover:from-blue-400/10 group-hover:via-purple-400/10 group-hover:to-blue-400/10 rounded-lg transition-all duration-300" />
+      <span className="relative z-10 group-hover:drop-shadow-lg transition-all duration-300">{label}</span>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-xl" />
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 group-hover:w-full transition-all duration-500 rounded-full shadow-lg" />
     </Link>
   );
-}
-
-function DropdownMenu({ label, items }: { 
+}function DropdownMenu({ label, items }: { 
   label: string; 
   items: Array<{ href: string; label: string; icon: string; subItems?: Array<{ href: string; label: string; icon: string }> }> 
 }) {
@@ -376,7 +372,8 @@ function DropdownMenu({ label, items }: {
                       {item.subItems.map((subItem, subIndex) => (
                         <Link 
                           key={subIndex}
-                          href={subItem.href} 
+                          href={subItem.href}
+                          prefetch={true}
                           className="flex items-center gap-3 px-3 py-2.5 hover:bg-white/10 hover:backdrop-blur-md transition-all duration-300 rounded-lg group/subitem hover:scale-105 hover:shadow-md border border-transparent hover:border-white/20 text-white/90 hover:text-white"
                         >
                           <span className="text-sm group-hover/subitem:scale-125 group-hover/subitem:rotate-12 transition-all duration-300">{subItem.icon}</span>
@@ -388,7 +385,8 @@ function DropdownMenu({ label, items }: {
                 </div>
               ) : (
                 <Link 
-                  href={item.href} 
+                  href={item.href}
+                  prefetch={true}
                   className="flex items-center gap-3 px-3 py-2.5 hover:bg-white/10 hover:backdrop-blur-md transition-all duration-300 rounded-lg group/item hover:scale-105 hover:shadow-md border border-transparent hover:border-white/20 text-white/90 hover:text-white"
                 >
                   <span className="text-sm group-hover/item:scale-125 group-hover/item:rotate-12 transition-all duration-300">{item.icon}</span>
@@ -410,7 +408,8 @@ function MobileNavLink({ href, label, onClick }: {
 }) {
   return (
     <Link 
-      href={href} 
+      href={href}
+      prefetch={true}
       onClick={onClick}
       className="block px-6 py-5 text-white/95 font-bold text-lg hover:text-white hover:bg-white/10 hover:backdrop-blur-md transition-all duration-300 rounded-xl border border-transparent hover:border-white/20 hover:scale-105 hover:shadow-lg group font-poppins"
     >

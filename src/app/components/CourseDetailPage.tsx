@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { useCart } from '../context/CartContext';
 import "./course-animations.css";
 
@@ -32,19 +32,16 @@ interface CourseDetailPageProps {
   course: CourseDetail;
 }
 
-export default function CourseDetailPage({ course }: CourseDetailPageProps) {
+// Memoized component for better performance
+const CourseDetailPage = memo(function CourseDetailPage({ course }: CourseDetailPageProps) {
   const [activeTab, setActiveTab] = useState("overview");
   const [showEnquiry, setShowEnquiry] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const { addToCart, isInCart } = useCart();
 
   useEffect(() => {
-    // Trigger animations on page load
-    const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 100);
-    
-    return () => clearTimeout(timer);
+    // Instant load - remove delay
+    setIsLoaded(true);
   }, []);
 
   const handleAddToCart = () => {
@@ -363,4 +360,6 @@ export default function CourseDetailPage({ course }: CourseDetailPageProps) {
       )}
     </div>
   );
-}
+});
+
+export default CourseDetailPage;

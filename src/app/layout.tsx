@@ -10,11 +10,15 @@ import { CartProvider } from "./context/CartContext";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: 'swap',
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: 'swap',
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -36,11 +40,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Preconnect to external domains for faster loading */}
-        <link rel="preconnect" href="https://images.unsplash.com" />
+        {/* Preconnect to external domains for INSTANT loading */}
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        
         {/* Preload critical resources */}
-        <link rel="preload" href="/logo.svg" as="image" />
+        <link rel="preload" href="/litc-logo.svg" as="image" />
+        
+        {/* Resource hints for faster navigation */}
+        <link rel="prefetch" href="/about" />
+        <link rel="prefetch" href="/contact" />
+        <link rel="prefetch" href="/explore-courses" />
+        
+        {/* Optimize rendering */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

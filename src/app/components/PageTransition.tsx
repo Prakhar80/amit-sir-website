@@ -7,12 +7,12 @@ export default function PageTransition() {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   useEffect(() => {
-    // Smooth slide transition
+    // Ultra-fast transition - 200ms only
     setIsTransitioning(true);
     
     const timer = setTimeout(() => {
       setIsTransitioning(false);
-    }, 500);
+    }, 200); // Reduced from 500ms to 200ms
 
     return () => clearTimeout(timer);
   }, [pathname]);
@@ -21,7 +21,7 @@ export default function PageTransition() {
 
   return (
     <div className="fixed inset-0 z-[9999] pointer-events-none overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-slide-transition" />
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-slide-transition-fast" />
     </div>
   );
 }
