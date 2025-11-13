@@ -263,7 +263,7 @@ const FeaturedCourses = memo(() => {
   const currentCourse = coursesData[currentSlide];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 relative overflow-hidden">
+    <section className="py-12 md:py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 relative overflow-hidden">
       {/* Dynamic Background Image */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-10"></div>
@@ -276,57 +276,57 @@ const FeaturedCourses = memo(() => {
         />
       </div>
 
-      {/* Background Animation */}
+      {/* Background Animation - Smaller on mobile */}
       <div className="absolute inset-0 opacity-10 z-20">
-        <div className="absolute top-10 left-10 w-20 h-20 bg-blue-500 rounded-full animate-bounce [animation-delay:0s]" />
-        <div className="absolute top-40 right-20 w-16 h-16 bg-purple-500 rounded-full animate-bounce [animation-delay:1s]" />
-        <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-orange-500 rounded-full animate-bounce [animation-delay:2s]" />
-        <div className="absolute bottom-40 right-10 w-24 h-24 bg-green-500 rounded-full animate-bounce [animation-delay:3s]" />
+        <div className="absolute top-5 left-5 md:top-10 md:left-10 w-12 h-12 md:w-20 md:h-20 bg-blue-500 rounded-full animate-bounce [animation-delay:0s]" />
+        <div className="absolute top-20 right-10 md:top-40 md:right-20 w-10 h-10 md:w-16 md:h-16 bg-purple-500 rounded-full animate-bounce [animation-delay:1s]" />
+        <div className="absolute bottom-10 left-1/4 md:bottom-20 w-8 h-8 md:w-12 md:h-12 bg-orange-500 rounded-full animate-bounce [animation-delay:2s]" />
+        <div className="absolute bottom-20 right-5 md:bottom-40 md:right-10 w-12 h-12 md:w-24 md:h-24 bg-green-500 rounded-full animate-bounce [animation-delay:3s]" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-30">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white drop-shadow-2xl mb-4">
+      <div className="container mx-auto px-4 sm:px-6 relative z-30">
+        {/* Section Header - Mobile Optimized */}
+        <div className="text-center mb-10 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-2xl mb-3 md:mb-4">
             Featured <span className="text-yellow-400">Professional Courses</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto mb-6" />
-          <p className="text-white/90 text-lg max-w-2xl mx-auto drop-shadow-lg">
+          <div className="w-20 md:w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto mb-4 md:mb-6" />
+          <p className="text-white/90 text-sm md:text-lg max-w-2xl mx-auto drop-shadow-lg px-4">
             Explore our comprehensive range of industry-leading certification courses designed to accelerate your career
           </p>
           
-          {/* Auto-play Toggle & Navigation */}
-          <div className="mt-8 flex items-center justify-center gap-6 flex-wrap">
+          {/* Auto-play Toggle & Navigation - Mobile friendly */}
+          <div className="mt-6 md:mt-8 flex items-center justify-center gap-3 md:gap-6 flex-wrap px-4">
             <button
               onClick={() => setIsAutoPlay(!isAutoPlay)}
               title={isAutoPlay ? 'Pause auto play' : 'Start auto play'}
               aria-label={isAutoPlay ? 'Pause auto play' : 'Start auto play'}
-              className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
+              className={`px-4 md:px-6 py-2.5 md:py-3 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 ${
                 isAutoPlay 
                   ? 'bg-green-500 text-white shadow-lg hover:bg-green-600' 
                   : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30'
               }`}
             >
-              {isAutoPlay ? '⏸️ Pause Auto Play' : '▶️ Start Auto Play'}
+              {isAutoPlay ? '⏸️ Pause' : '▶️ Play'}
             </button>
             
-            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
+            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-3 md:px-4 py-2">
               <button
                 onClick={prevSlide}
                 title="Previous course"
                 aria-label="Previous course"
-                className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+                className="w-7 h-7 md:w-8 md:h-8 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors active:scale-95"
               >
                 ←
               </button>
-              <span className="text-white text-sm font-medium px-3">
+              <span className="text-white text-xs md:text-sm font-medium px-2 md:px-3">
                 {currentSlide + 1} / {coursesData.length}
               </span>
               <button
                 onClick={nextSlide}
                 title="Next course"
                 aria-label="Next course"
-                className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+                className="w-7 h-7 md:w-8 md:h-8 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors active:scale-95"
               >
                 →
               </button>
@@ -334,15 +334,15 @@ const FeaturedCourses = memo(() => {
           </div>
         </div>
 
-        {/* Main Slider */}
+        {/* Main Slider - Mobile Optimized */}
         <div className="relative max-w-6xl mx-auto">
-          {/* Navigation Arrows */}
+          {/* Navigation Arrows - Hidden on mobile, touch-friendly on tablet+ */}
           <button
             title="Previous course"
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-40 w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-gray-700 hover:bg-white hover:scale-110 transition-all duration-300"
+            className="hidden md:flex absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-40 w-10 h-10 md:w-14 md:h-14 bg-white/90 backdrop-blur-sm rounded-full shadow-lg items-center justify-center text-gray-700 hover:bg-white hover:scale-110 transition-all duration-300 active:scale-95"
           >
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
@@ -350,32 +350,32 @@ const FeaturedCourses = memo(() => {
           <button
             title="Next course"
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-40 w-14 h-14 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-gray-700 hover:bg-white hover:scale-110 transition-all duration-300"
+            className="hidden md:flex absolute right-2 lg:right-4 top-1/2 -translate-y-1/2 z-40 w-10 h-10 md:w-14 md:h-14 bg-white/90 backdrop-blur-sm rounded-full shadow-lg items-center justify-center text-gray-700 hover:bg-white hover:scale-110 transition-all duration-300 active:scale-95"
           >
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
 
-          {/* Course Card */}
-          <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl overflow-hidden border border-white/50">
+          {/* Course Card - Mobile Optimized */}
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden border border-white/50">
             <div className="lg:flex">
-              {/* Course Icon & Basic Info */}
-              <div className={`lg:w-1/3 bg-gradient-to-br ${currentCourse.color} p-8 text-white relative overflow-hidden`}>
+              {/* Course Icon & Basic Info - Responsive */}
+              <div className={`lg:w-1/3 bg-gradient-to-br ${currentCourse.color} p-5 md:p-8 text-white relative overflow-hidden`}>
                 {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-0 right-0 w-32 h-32 border-2 border-white rounded-full transform translate-x-16 -translate-y-16"></div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 border-2 border-white rounded-full transform -translate-x-12 translate-y-12"></div>
+                  <div className="absolute top-0 right-0 w-24 md:w-32 h-24 md:h-32 border-2 border-white rounded-full transform translate-x-12 md:translate-x-16 -translate-y-12 md:-translate-y-16"></div>
+                  <div className="absolute bottom-0 left-0 w-16 md:w-24 h-16 md:h-24 border-2 border-white rounded-full transform -translate-x-8 md:-translate-x-12 translate-y-8 md:translate-y-12"></div>
                 </div>
                 
                 <div className="relative z-10">
                   {/* Course Icon */}
-                  <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-white rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 shadow-lg">
                     {currentCourse.title.includes("AWS") && (
-                      <div className="text-2xl font-bold text-orange-600">AWS</div>
+                      <div className="text-xl md:text-2xl font-bold text-orange-600">AWS</div>
                     )}
                     {currentCourse.title.includes("REDHAT") && (
-                      <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
+                      <div className="w-10 h-10 md:w-12 md:h-12 bg-red-600 rounded-full flex items-center justify-center">
                         <span className="text-white font-bold text-xs">RH</span>
                       </div>
                     )}
@@ -384,16 +384,16 @@ const FeaturedCourses = memo(() => {
                     )}
                     {currentCourse.title.includes("PYTHON") && (
                       <div className="flex">
-                        <div className="w-4 h-4 bg-blue-500 rounded-full"></div>
-                        <div className="w-4 h-4 bg-yellow-500 rounded-full -ml-1"></div>
+                        <div className="w-3 h-3 md:w-4 md:h-4 bg-blue-500 rounded-full"></div>
+                        <div className="w-3 h-3 md:w-4 md:h-4 bg-yellow-500 rounded-full -ml-1"></div>
                       </div>
                     )}
                     {currentCourse.title.includes("DOCKER") && (
-                      <div className="text-2xl">🐳</div>
+                      <div className="text-xl md:text-2xl">🐳</div>
                     )}
                     {currentCourse.title.includes("KUBERNETES") && (
-                      <div className="w-8 h-8 border-2 border-blue-600 rounded flex items-center justify-center">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <div className="w-6 h-6 md:w-8 md:h-8 border-2 border-blue-600 rounded flex items-center justify-center">
+                        <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-blue-600 rounded-full"></div>
                       </div>
                     )}
                     {currentCourse.title.includes("OPENSHIFT") && (
@@ -403,40 +403,40 @@ const FeaturedCourses = memo(() => {
                     )}
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-3 leading-tight">
+                  <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3 leading-tight">
                     {currentCourse.title}
                   </h3>
                   
-                  <div className="space-y-3 mb-6">
+                  <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
                     <div className="flex items-center gap-2">
-                      <span className="text-white/80">⏱️</span>
-                      <span className="text-sm font-medium">{currentCourse.duration}</span>
+                      <span className="text-white/80 text-sm md:text-base">⏱️</span>
+                      <span className="text-xs md:text-sm font-medium">{currentCourse.duration}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-white/80">📊</span>
-                      <span className="text-sm font-medium">{currentCourse.level}</span>
+                      <span className="text-white/80 text-sm md:text-base">📊</span>
+                      <span className="text-xs md:text-sm font-medium">{currentCourse.level}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="text-white/80">🎯</span>
-                      <span className="text-sm font-medium">{currentCourse.placement}</span>
+                      <span className="text-white/80 text-sm md:text-base">🎯</span>
+                      <span className="text-xs md:text-sm font-medium">{currentCourse.placement}</span>
                     </div>
                   </div>
 
-                  <div className="bg-white/20 rounded-xl p-3 backdrop-blur-sm">
+                  <div className="bg-white/20 rounded-lg md:rounded-xl p-2.5 md:p-3 backdrop-blur-sm">
                     <div className="text-xs text-white/80 mb-1">Certification</div>
-                    <div className="text-sm font-bold">{currentCourse.certification}</div>
+                    <div className="text-xs md:text-sm font-bold leading-tight">{currentCourse.certification}</div>
                   </div>
                 </div>
               </div>
 
-              {/* Detailed Content */}
-              <div className="lg:w-2/3 p-8">
-                <div className="flex justify-between items-start mb-6">
-                  <div className="flex-1 mr-6">
-                    <p className="text-gray-700 leading-relaxed mb-4">
+              {/* Detailed Content - Mobile padding */}
+              <div className="lg:w-2/3 p-5 md:p-8">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 md:mb-6">
+                  <div className="flex-1 md:mr-6 mb-4 md:mb-0">
+                    <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-3 md:mb-4">
                       {currentCourse.description}
                     </p>
-                    <div className="flex items-center gap-4 text-sm text-gray-600">
+                    <div className="flex items-center gap-3 md:gap-4 text-xs md:text-sm text-gray-600 flex-wrap">
                       <span className="flex items-center gap-1">
                         <span>📚</span>
                         {currentCourse.projects}
@@ -447,7 +447,7 @@ const FeaturedCourses = memo(() => {
                       </span>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-3 relative z-50">
+                  <div className="flex flex-row md:flex-col gap-3 relative z-50">
                     <button 
                       type="button"
                       onClick={(e) => {
@@ -463,7 +463,7 @@ const FeaturedCourses = memo(() => {
                         console.log('👆 POINTERDOWN EVENT FIRED!');
                       }}
                       title="Enroll in this course"
-                      className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 whitespace-nowrap cursor-pointer relative z-50"
+                      className="px-4 md:px-6 py-2.5 md:py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-semibold hover:shadow-lg md:hover:scale-105 transition-all duration-300 whitespace-nowrap cursor-pointer relative z-50 text-sm md:text-base active:scale-95"
                     >
                       🎓 Enroll Now
                     </button>
@@ -476,10 +476,10 @@ const FeaturedCourses = memo(() => {
                       }}
                       disabled={isInCart(currentCourse.id.toString())}
                       title={isInCart(currentCourse.id.toString()) ? "Already in cart" : "Add to cart"}
-                      className={`px-6 py-2.5 rounded-xl font-bold transition-all duration-300 text-sm flex items-center justify-center gap-2 ${
+                      className={`px-4 md:px-6 py-2 md:py-2.5 rounded-xl font-bold transition-all duration-300 text-xs md:text-sm flex items-center justify-center gap-2 active:scale-95 ${
                         isInCart(currentCourse.id.toString()) 
                           ? 'bg-green-100 text-green-700 border-2 border-green-500' 
-                          : 'bg-blue-50 text-blue-600 hover:bg-blue-100 border-2 border-blue-200 hover:scale-105'
+                          : 'bg-blue-50 text-blue-600 hover:bg-blue-100 border-2 border-blue-200 md:hover:scale-105'
                       }`}
                     >
                       {isInCart(currentCourse.id.toString()) ? '✓ In Cart' : '🛒 Add to Cart'}
@@ -487,7 +487,7 @@ const FeaturedCourses = memo(() => {
                     <Link href={currentCourse.urlPath}>
                       <button 
                         title="View course details"
-                        className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 whitespace-nowrap w-full"
+                        className="px-4 md:px-6 py-2.5 md:py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg md:hover:scale-105 transition-all duration-300 whitespace-nowrap w-full text-sm md:text-base active:scale-95"
                       >
                         View Details →
                       </button>
@@ -495,15 +495,15 @@ const FeaturedCourses = memo(() => {
                   </div>
                 </div>
 
-                {/* Syllabus Overview */}
-                <div className="mb-6">
-                  <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                {/* Syllabus Overview - Mobile Optimized */}
+                <div className="mb-5 md:mb-6">
+                  <h4 className="text-base md:text-lg font-bold text-gray-900 mb-2.5 md:mb-3 flex items-center gap-2">
                     <span className="text-blue-500">📋</span>
                     Course Syllabus
                   </h4>
-                  <div className="grid md:grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {currentCourse.syllabus.map((topic, i) => (
-                      <div key={i} className="flex items-center gap-2 text-sm text-gray-700">
+                      <div key={i} className="flex items-center gap-2 text-xs md:text-sm text-gray-700">
                         <span className="w-1.5 h-1.5 bg-blue-500 rounded-full flex-shrink-0"></span>
                         <span>{topic}</span>
                       </div>
@@ -511,17 +511,17 @@ const FeaturedCourses = memo(() => {
                   </div>
                 </div>
 
-                {/* Job Roles & Salaries */}
+                {/* Job Roles & Salaries - Mobile Cards */}
                 <div>
-                  <h4 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
+                  <h4 className="text-base md:text-lg font-bold text-gray-900 mb-2.5 md:mb-3 flex items-center gap-2">
                     <span className="text-green-500">💼</span>
                     Career Opportunities
                   </h4>
-                  <div className="grid md:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-3">
                     {currentCourse.jobRoles.map((job, i) => (
-                      <div key={i} className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-3 border border-green-100">
-                        <div className="font-semibold text-gray-900 text-sm">{job.role}</div>
-                        <div className="text-green-600 font-bold text-lg">{job.salary}</div>
+                      <div key={i} className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-2.5 md:p-3 border border-green-100">
+                        <div className="font-semibold text-gray-900 text-xs md:text-sm">{job.role}</div>
+                        <div className="text-green-600 font-bold text-base md:text-lg">{job.salary}</div>
                       </div>
                     ))}
                   </div>
@@ -530,15 +530,15 @@ const FeaturedCourses = memo(() => {
             </div>
           </div>
 
-          {/* Slide Indicators */}
-          <div className="flex justify-center mt-8 space-x-3">
+          {/* Slide Indicators - Touch-friendly */}
+          <div className="flex justify-center mt-6 md:mt-8 space-x-2 md:space-x-3">
             {coursesData.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 title={`Go to course ${index + 1}`}
                 aria-label={`Go to course ${index + 1}`}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all duration-300 active:scale-125 ${
                   index === currentSlide 
                     ? 'bg-white scale-125 shadow-lg' 
                     : 'bg-white/50 hover:bg-white/70'

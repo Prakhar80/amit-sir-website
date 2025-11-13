@@ -210,8 +210,7 @@ export default function Navbar() {
                 label: "Cybersecurity (Online)", 
                 icon: "🔒",
                 subItems: [
-                  { href: "/cisco/ccst-networking", label: "CCST Networking (100-150)", icon: "🌟" },
-                  { href: "/cybersecurity/ceh", label: "Certified Ethical Hacker (CEH v12)", icon: "👨‍💻" }
+                  { href: "/cisco/ccst-networking", label: "CCST Networking (100-150)", icon: "🌟" }
                 ]
               },
             ]}
@@ -278,21 +277,151 @@ export default function Navbar() {
       {/* Enhanced Mobile Menu */}
       <div className={`lg:hidden transition-all duration-500 ease-out ${
         mobileMenuOpen 
-          ? 'max-h-screen opacity-100 pb-6' 
+          ? 'max-h-[80vh] opacity-100 pb-6 overflow-y-auto' 
           : 'max-h-0 opacity-0 overflow-hidden'
       }`}>
-        <div className="px-8 pt-6 space-y-4 bg-white/10 backdrop-blur-2xl border-t border-white/20 rounded-b-3xl">
+        <div className="px-4 pt-6 space-y-3 bg-white/10 backdrop-blur-2xl border-t border-white/20 rounded-b-3xl">
           <MobileNavLink href="/" label="Home" onClick={() => setMobileMenuOpen(false)} />
           <MobileNavLink href="/about" label="About Us" onClick={() => setMobileMenuOpen(false)} />
-          <MobileNavLink href="/courses" label="Courses" onClick={() => setMobileMenuOpen(false)} />
-          <MobileNavLink href="/services" label="Services" onClick={() => setMobileMenuOpen(false)} />
+          
+          {/* Mobile Courses Dropdown */}
+          <MobileDropdownMenu 
+            label="Courses & Certification"
+            items={[
+              { 
+                href: "/courses/aws-cloud", 
+                label: "AWS Cloud", 
+                icon: "☁️",
+                subItems: [
+                  { href: "/aws/cloud-services", label: "AWS Cloud Services", icon: "🌐" },
+                  { href: "/aws/certified-cloud-practitioner", label: "AWS Certified Cloud Practitioner", icon: "📋" },
+                  { href: "/aws/certified-solutions-architect-associate", label: "AWS Solutions Architect Associate", icon: "🏗️" },
+                  { href: "/aws/certified-sysops-administrator-associate", label: "AWS SysOps Administrator", icon: "⚙️" },
+                  { href: "/aws/certified-developer-associate", label: "AWS Developer Associate", icon: "💻" },
+                  { href: "/aws/certified-devops-engineer-professional", label: "AWS DevOps Engineer Professional", icon: "🚀" },
+                  { href: "/aws/certified-advanced-networking-specialty", label: "AWS Advanced Networking", icon: "🌐" },
+                  { href: "/aws/certified-security-specialty", label: "AWS Security Specialty", icon: "🔒" }
+                ]
+              },
+              { 
+                href: "/courses/redhat-linux", 
+                label: "RedHat Linux", 
+                icon: "🔴",
+                subItems: [
+                  { href: "/certifications/rhcsa", label: "RHCSA (EX200)", icon: "🏅" },
+                  { href: "/certifications/rhce", label: "RHCE - Ansible (EX294)", icon: "⚙️" },
+                  { href: "/certifications/openstack", label: "Open Stack Cloud (EX210)", icon: "☁️" },
+                  { href: "/certifications/enterprise-virtualization", label: "Enterprise Virtualization (EX318)", icon: "💻" },
+                  { href: "/certifications/ansible-rh358", label: "Ansible Service Management (RH358)", icon: "🔧" },
+                  { href: "/certifications/rhel-diagnostics", label: "RHEL Diagnostics (RH342)", icon: "🔍" },
+                  { href: "/certifications/rh415", label: "Red Hat Security (RH415)", icon: "🔒" },
+                  { href: "/certifications/rhca", label: "RHCA - Red Hat Certified Architect", icon: "🏛️" },
+                  { href: "/openshift/certified-specialist-administration-ex280", label: "OpenShift Administration (EX280)", icon: "🚀" },
+                  { href: "/openshift/certified-application-developer-ex288", label: "OpenShift Developer (EX288)", icon: "🐳" },
+                  { href: "/openshift/certified-specialist-automation-integration-ex380", label: "OpenShift Automation (EX380)", icon: "⚙️" }
+                ]
+              },
+              { 
+                href: "/courses/cisco-ccna", 
+                label: "Cisco CCNA", 
+                icon: "🌐",
+                subItems: [
+                  { href: "/cisco/ccst-networking", label: "CCST Networking", icon: "🌟" },
+                  { href: "/cisco/ccna-training-200-301", label: "CCNA Training", icon: "🔧" },
+                  { href: "/cisco/ccnp-training-350-401", label: "CCNP Training", icon: "⚙️" },
+                  { href: "/cisco/vmware-datacenter-virtualization", label: "VMware VCP-DCV", icon: "🖥️" }
+                ]
+              },
+              { 
+                href: "/courses/python", 
+                label: "Python", 
+                icon: "🐍",
+                subItems: [
+                  { href: "/python/python-programming", label: "Python Programming", icon: "🐍" },
+                  { href: "/python/full-stack-development", label: "Python Full Stack", icon: "💻" }
+                ]
+              },
+              { 
+                href: "/courses/docker", 
+                label: "Docker", 
+                icon: "🐳",
+                subItems: [
+                  { href: "/docker/docker-fundamentals", label: "Docker Fundamentals", icon: "🐳" },
+                  { href: "/docker/docker-certified-associate", label: "Docker Certified Associate", icon: "🏅" },
+                  { href: "/docker/containerization-microservices", label: "Containerization & Microservices", icon: "📦" }
+                ]
+              },
+              { 
+                href: "/courses/kubernetes", 
+                label: "Kubernetes", 
+                icon: "⚙️",
+                subItems: [
+                  { href: "/kubernetes/kubernetes-fundamentals", label: "Kubernetes Fundamentals", icon: "⚙️" },
+                  { href: "/kubernetes/certified-kubernetes-administrator", label: "CKA", icon: "🏅" },
+                  { href: "/kubernetes/certified-kubernetes-application-developer", label: "CKAD", icon: "💻" },
+                  { href: "/kubernetes/certified-kubernetes-security-specialist", label: "CKS", icon: "🔒" },
+                  { href: "/kubernetes/openshift-administration", label: "OpenShift for Kubernetes", icon: "🚀" }
+                ]
+              },
+              { 
+                href: "/courses/microsoft", 
+                label: "Microsoft", 
+                icon: "🪟",
+                subItems: [
+                  { href: "/microsoft/az-900", label: "Azure Fundamentals", icon: "☁️" },
+                  { href: "/microsoft/az-104", label: "Azure Administrator", icon: "⚙️" },
+                  { href: "/microsoft/az-204", label: "Azure Developer", icon: "💻" },
+                  { href: "/microsoft/dp-900", label: "Azure Data Fundamentals", icon: "📊" },
+                  { href: "/microsoft/dp-203", label: "Azure Data Engineer", icon: "🔧" },
+                  { href: "/microsoft/ai-900", label: "Azure AI Fundamentals", icon: "🤖" },
+                  { href: "/microsoft/ai-102", label: "Azure AI Engineer", icon: "🧠" },
+                  { href: "/microsoft/ms-365", label: "Microsoft 365 Administrator", icon: "🖥️" },
+                  { href: "/microsoft/ms-700", label: "Teams Administrator", icon: "👥" }
+                ]
+              },
+              { 
+                href: "/courses/devops", 
+                label: "DevOps", 
+                icon: "🚀",
+                subItems: [
+                  { href: "/devops/jenkins-certified-engineer", label: "Jenkins Certified Engineer", icon: "⚙️" },
+                  { href: "/devops/gitlab-certified-associate", label: "GitLab Certified Associate", icon: "🦊" },
+                  { href: "/devops/ansible-automation", label: "Ansible Automation", icon: "🔧" },
+                  { href: "/devops/terraform-associate", label: "Terraform Associate", icon: "🏗️" },
+                  { href: "/devops/aws-devops-engineer", label: "AWS DevOps Engineer", icon: "☁️" },
+                  { href: "/devops/google-cloud-devops", label: "Google Cloud DevOps", icon: "🌐" }
+                ]
+              },
+              { 
+                href: "/courses/cybersecurity", 
+                label: "Cybersecurity", 
+                icon: "🔒",
+                subItems: [
+                  { href: "/cisco/ccst-networking", label: "CCST Networking", icon: "🌟" }
+                ]
+              },
+            ]}
+            onClose={() => setMobileMenuOpen(false)}
+          />
+          
+          {/* Mobile Services Dropdown */}
+          <MobileDropdownMenu 
+            label="Services"
+            items={[
+              { href: "/services/web-hosting", label: "Web Hosting", icon: "🌐" },
+              { href: "/services/internship", label: "Internship Programs", icon: "🎓" },
+              { href: "/services/web-development", label: "Web Development", icon: "💻" },
+            ]}
+            onClose={() => setMobileMenuOpen(false)}
+          />
+          
           <MobileNavLink href="/gallery" label="Gallery" onClick={() => setMobileMenuOpen(false)} />
           <MobileNavLink href="/contact" label="Contact Us" onClick={() => setMobileMenuOpen(false)} />
           
-          <div className="pt-5 border-t border-white/20">
+          <div className="pt-4 border-t border-white/20">
             <a 
               href="tel:+91-9522220892" 
-              className="flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white px-7 py-4 rounded-xl font-bold text-lg shadow-xl w-full hover:shadow-2xl hover:scale-105 transition-all duration-300 group backdrop-blur-md border border-white/30 font-poppins"
+              className="flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 text-white px-6 py-3.5 rounded-xl font-bold text-base shadow-xl w-full hover:shadow-2xl active:scale-95 transition-all duration-300 group backdrop-blur-md border border-white/30 font-poppins"
             >
               <span className="text-lg group-hover:scale-110 transition-transform duration-300">📞</span>
               <span className="group-hover:tracking-wide transition-all duration-300">Call +91-9522220892</span>
@@ -411,9 +540,84 @@ function MobileNavLink({ href, label, onClick }: {
       href={href}
       prefetch={true}
       onClick={onClick}
-      className="block px-6 py-5 text-white/95 font-bold text-lg hover:text-white hover:bg-white/10 hover:backdrop-blur-md transition-all duration-300 rounded-xl border border-transparent hover:border-white/20 hover:scale-105 hover:shadow-lg group font-poppins"
+      className="block px-4 py-3 text-white/95 font-bold text-base hover:text-white hover:bg-white/10 hover:backdrop-blur-md transition-all duration-300 rounded-xl border border-transparent hover:border-white/20 active:scale-95 group font-poppins"
     >
-      <span className="group-hover:translate-x-2 transition-transform duration-300">{label}</span>
+      <span className="group-hover:translate-x-2 transition-transform duration-300 inline-block">{label}</span>
     </Link>
+  );
+}
+
+function MobileDropdownMenu({ label, items, onClose }: { 
+  label: string; 
+  items: Array<{ href: string; label: string; icon: string; subItems?: Array<{ href: string; label: string; icon: string }> }>; 
+  onClose: () => void;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null);
+
+  return (
+    <div className="border-b border-white/10 pb-2">
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between px-4 py-3 text-white/95 font-bold text-base hover:text-white hover:bg-white/10 hover:backdrop-blur-md transition-all duration-300 rounded-xl border border-transparent hover:border-white/20 active:scale-95 font-poppins"
+      >
+        <span>{label}</span>
+        <span className={`text-xs transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>▼</span>
+      </button>
+      
+      <div className={`overflow-hidden transition-all duration-500 ${
+        isOpen ? 'max-h-[2000px] opacity-100 mt-2' : 'max-h-0 opacity-0'
+      }`}>
+        <div className="space-y-1 pl-2">
+          {items.map((item, index) => (
+            <div key={index}>
+              {item.subItems ? (
+                <div>
+                  <button
+                    onClick={() => setActiveSubmenu(activeSubmenu === index ? null : index)}
+                    className="w-full flex items-center justify-between gap-2 px-3 py-2.5 text-white/90 hover:text-white hover:bg-white/10 transition-all duration-300 rounded-lg text-sm font-semibold group border border-transparent hover:border-white/10 active:scale-95"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs group-hover:scale-110 transition-transform">{item.icon}</span>
+                      <span className="group-hover:translate-x-1 transition-transform">{item.label}</span>
+                    </div>
+                    <span className={`text-xs transition-transform duration-300 ${activeSubmenu === index ? 'rotate-90' : ''}`}>▶</span>
+                  </button>
+                  
+                  <div className={`overflow-hidden transition-all duration-500 ${
+                    activeSubmenu === index ? 'max-h-[1000px] opacity-100 mt-1' : 'max-h-0 opacity-0'
+                  }`}>
+                    <div className="space-y-0.5 pl-4">
+                      {item.subItems.map((subItem, subIndex) => (
+                        <Link
+                          key={subIndex}
+                          href={subItem.href}
+                          prefetch={true}
+                          onClick={onClose}
+                          className="flex items-center gap-2 px-3 py-2 text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300 rounded-lg text-xs font-medium group border border-transparent hover:border-white/10 active:scale-95"
+                        >
+                          <span className="text-xs group-hover:scale-110 transition-transform">{subItem.icon}</span>
+                          <span className="group-hover:translate-x-1 transition-transform leading-tight">{subItem.label}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  href={item.href}
+                  prefetch={true}
+                  onClick={onClose}
+                  className="flex items-center gap-2 px-3 py-2.5 text-white/90 hover:text-white hover:bg-white/10 transition-all duration-300 rounded-lg text-sm font-semibold group border border-transparent hover:border-white/10 active:scale-95"
+                >
+                  <span className="text-xs group-hover:scale-110 transition-transform">{item.icon}</span>
+                  <span className="group-hover:translate-x-1 transition-transform">{item.label}</span>
+                </Link>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }

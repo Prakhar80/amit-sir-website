@@ -114,83 +114,88 @@ const CourseDetailPage = memo(function CourseDetailPage({ course }: CourseDetail
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 overflow-x-hidden">
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-900/90 via-purple-900/90 to-gray-900/90 pt-24 pb-16">
+      {/* Hero Section - Mobile Optimized */}
+      <div className="relative bg-gradient-to-r from-blue-900/90 via-purple-900/90 to-gray-900/90 pt-20 pb-12 md:pt-24 md:pb-16">
         <div className="absolute inset-0 bg-black/30" />
         
-        {/* Floating Animation Elements */}
+        {/* Floating Animation Elements - Smaller on mobile */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-20 h-20 bg-blue-500/20 rounded-full blur-xl animate-pulse" />
-          <div className="absolute top-40 right-20 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl animate-bounce" />
-          <div className="absolute bottom-20 left-1/3 w-16 h-16 bg-pink-500/20 rounded-full blur-lg animate-pulse" style={{animationDelay: '1s'}} />
+          <div className="absolute top-10 left-5 md:top-20 md:left-10 w-12 h-12 md:w-20 md:h-20 bg-blue-500/20 rounded-full blur-xl animate-pulse" />
+          <div className="absolute top-20 right-10 md:top-40 md:right-20 w-20 h-20 md:w-32 md:h-32 bg-purple-500/20 rounded-full blur-2xl animate-bounce" />
+          <div className="absolute bottom-10 left-1/3 md:bottom-20 w-12 h-12 md:w-16 md:h-16 bg-pink-500/20 rounded-full blur-lg animate-pulse" style={{animationDelay: '1s'}} />
         </div>
         
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
+            {/* Content Section - Mobile Optimized */}
             <div className={`transform transition-all duration-1000 ease-out ${
               isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-16 opacity-0'
             }`}>
-              <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">
                 {course.title}
               </h1>
-              <p className="text-xl text-gray-200 mb-8 leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 md:mb-8 leading-relaxed">
                 {course.description}
               </p>
-              <div className="flex flex-wrap gap-4 mb-8">
-                <div className={`bg-white/10 backdrop-blur-md px-4 py-2 rounded-lg border border-white/20 transform transition-all duration-700 ease-out ${
+              
+              {/* Info Cards - Mobile Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mb-6 md:mb-8">
+                <div className={`bg-white/10 backdrop-blur-md px-3 py-2.5 md:px-4 md:py-2 rounded-lg border border-white/20 transform transition-all duration-700 ease-out ${
                   isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                 }`} style={{transitionDelay: '300ms'}}>
-                  <span className="text-blue-300 font-semibold">⏱️ Duration: </span>
-                  <span className="text-white">{course.duration}</span>
+                  <span className="text-blue-300 font-semibold text-sm md:text-base">⏱️ Duration: </span>
+                  <span className="text-white text-sm md:text-base">{course.duration}</span>
                 </div>
-                <div className={`bg-white/10 backdrop-blur-md px-4 py-2 rounded-lg border border-white/20 transform transition-all duration-700 ease-out ${
+                <div className={`bg-white/10 backdrop-blur-md px-3 py-2.5 md:px-4 md:py-2 rounded-lg border border-white/20 transform transition-all duration-700 ease-out ${
                   isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                 }`} style={{transitionDelay: '400ms'}}>
-                  <span className="text-purple-300 font-semibold">📊 Level: </span>
-                  <span className="text-white">{course.level}</span>
+                  <span className="text-purple-300 font-semibold text-sm md:text-base">📊 Level: </span>
+                  <span className="text-white text-sm md:text-base">{course.level}</span>
                 </div>
-                <div className={`bg-white/10 backdrop-blur-md px-4 py-2 rounded-lg border border-white/20 transform transition-all duration-700 ease-out ${
+                <div className={`bg-white/10 backdrop-blur-md px-3 py-2.5 md:px-4 md:py-2 rounded-lg border border-white/20 transform transition-all duration-700 ease-out ${
                   isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
                 }`} style={{transitionDelay: '500ms'}}>
-                  <span className="text-green-300 font-semibold">🎯 Mode: </span>
-                  <span className="text-white">{course.mode.join(", ")}</span>
+                  <span className="text-green-300 font-semibold text-sm md:text-base">🎯 Mode: </span>
+                  <span className="text-white text-sm md:text-base">{course.mode.join(", ")}</span>
                 </div>
               </div>
             </div>
             
-            {/* Course Card */}
-            <div className={`bg-white/10 backdrop-blur-2xl rounded-3xl p-8 border border-white/20 shadow-2xl transform transition-all duration-1000 ease-out ${
+            {/* Course Card - Mobile Optimized */}
+            <div className={`bg-white/10 backdrop-blur-2xl rounded-2xl md:rounded-3xl p-5 md:p-8 border border-white/20 shadow-2xl transform transition-all duration-1000 ease-out ${
               isLoaded ? 'translate-x-0 opacity-100 scale-100' : 'translate-x-16 opacity-0 scale-95'
             }`} style={{transitionDelay: '200ms'}}>
-              <div className="text-center mb-6">
-                <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="text-center mb-5 md:mb-6">
+                <div className="flex items-center justify-center gap-2 mb-3 md:mb-4">
                   {course.originalPrice && (
-                    <span className="text-2xl text-gray-400 line-through">{course.originalPrice}</span>
+                    <span className="text-lg sm:text-xl md:text-2xl text-gray-400 line-through">{course.originalPrice}</span>
                   )}
-                  <span className="text-4xl font-bold text-white animate-pulse">₹{course.price}</span>
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-white animate-pulse">₹{course.price}</span>
                 </div>
-                <p className="text-blue-300">💡 Next Batch: {course.nextBatch}</p>
+                <p className="text-blue-300 text-sm md:text-base">💡 Next Batch: {course.nextBatch}</p>
               </div>
               
-              <div className="space-y-4 mb-8">
+              {/* Features - Compact on mobile */}
+              <div className="space-y-2.5 md:space-y-4 mb-6 md:mb-8">
                 {course.features.map((feature, index) => (
-                  <div key={index} className={`flex items-center gap-3 transform transition-all duration-500 ease-out ${
+                  <div key={index} className={`flex items-center gap-2.5 md:gap-3 transform transition-all duration-500 ease-out ${
                     isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
                   }`} style={{transitionDelay: `${600 + (index * 100)}ms`}}>
-                    <span className="text-green-400 animate-bounce" style={{animationDelay: `${index * 200}ms`}}>✅</span>
-                    <span className="text-gray-200">{feature}</span>
+                    <span className="text-green-400 text-sm md:text-base animate-bounce" style={{animationDelay: `${index * 200}ms`}}>✅</span>
+                    <span className="text-gray-200 text-sm md:text-base">{feature}</span>
                   </div>
                 ))}
               </div>
               
+              {/* Buttons - Touch friendly */}
               <div className="space-y-3">
                 <button 
                   onClick={handleAddToCart}
                   disabled={isInCart(course.id || course.title.toLowerCase().replace(/\s+/g, '-'))}
-                  className={`w-full py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform ${
+                  className={`w-full py-3.5 md:py-4 rounded-xl font-bold text-base md:text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform active:scale-95 ${
                     isInCart(course.id || course.title.toLowerCase().replace(/\s+/g, '-'))
                       ? 'bg-green-100 text-green-700 border-2 border-green-500 cursor-not-allowed'
-                      : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 hover:scale-105'
+                      : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 md:hover:scale-105'
                   }`}
                 >
                   {isInCart(course.id || course.title.toLowerCase().replace(/\s+/g, '-')) 
@@ -199,7 +204,7 @@ const CourseDetailPage = memo(function CourseDetailPage({ course }: CourseDetail
                 </button>
                 <button 
                   onClick={() => setShowEnquiry(true)}
-                  className="w-full bg-gradient-to-r from-green-600 to-teal-600 text-white py-4 rounded-xl font-bold text-lg hover:from-green-700 hover:to-teal-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform"
+                  className="w-full bg-gradient-to-r from-green-600 to-teal-600 text-white py-3.5 md:py-4 rounded-xl font-bold text-base md:text-lg hover:from-green-700 hover:to-teal-700 transition-all duration-300 shadow-lg hover:shadow-xl md:hover:scale-105 transform active:scale-95"
                 >
                   📞 Enquire Now
                 </button>
@@ -209,13 +214,13 @@ const CourseDetailPage = memo(function CourseDetailPage({ course }: CourseDetail
         </div>
       </div>
 
-      {/* Content Tabs */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-        <div className={`bg-white/10 backdrop-blur-2xl rounded-3xl border border-white/20 overflow-hidden transform transition-all duration-1000 ease-out ${
+      {/* Content Tabs - Mobile Optimized */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div className={`bg-white/10 backdrop-blur-2xl rounded-2xl md:rounded-3xl border border-white/20 overflow-hidden transform transition-all duration-1000 ease-out ${
           isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
         }`}>
-          {/* Tab Navigation */}
-          <div className="flex flex-wrap border-b border-white/20">
+          {/* Tab Navigation - Scrollable on mobile */}
+          <div className="flex overflow-x-auto border-b border-white/20 scrollbar-hide">
             {[
               { id: "overview", label: "Overview", icon: "📋" },
               { id: "syllabus", label: "Syllabus", icon: "📚" },
@@ -225,35 +230,35 @@ const CourseDetailPage = memo(function CourseDetailPage({ course }: CourseDetail
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-6 py-4 font-semibold transition-all duration-300 hover:scale-105 transform ${
+                className={`flex items-center gap-1.5 md:gap-2 px-4 md:px-6 py-3 md:py-4 font-semibold text-sm md:text-base transition-all duration-300 md:hover:scale-105 transform whitespace-nowrap ${
                   activeTab === tab.id
                     ? "bg-blue-600 text-white shadow-lg"
                     : "text-gray-300 hover:text-white hover:bg-white/10"
                 }`}
               >
-                <span className="animate-pulse">{tab.icon}</span>
-                {tab.label}
+                <span className="animate-pulse text-base md:text-lg">{tab.icon}</span>
+                <span className="hidden sm:inline">{tab.label}</span>
               </button>
             ))}
           </div>
 
-          {/* Tab Content */}
-          <div className="p-8">
+          {/* Tab Content - Mobile padding */}
+          <div className="p-4 sm:p-6 md:p-8">
             {activeTab === "overview" && (
-              <div className={`space-y-8 transform transition-all duration-700 ease-out ${
+              <div className={`space-y-6 md:space-y-8 transform transition-all duration-700 ease-out ${
                 activeTab === "overview" ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
               }`}>
-                <div className="transform transition-all duration-500 ease-out hover:scale-105">
-                  <h3 className="text-2xl font-bold text-white mb-4">Course Overview</h3>
-                  <p className="text-gray-300 leading-relaxed">{course.description}</p>
+                <div className="transform transition-all duration-500 ease-out md:hover:scale-105">
+                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4">Course Overview</h3>
+                  <p className="text-gray-300 leading-relaxed text-sm md:text-base">{course.description}</p>
                 </div>
                 
                 <div className="transform transition-all duration-700 ease-out">
-                  <h4 className="text-xl font-bold text-white mb-4">Prerequisites</h4>
+                  <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">Prerequisites</h4>
                   <ul className="space-y-2">
                     {course.prerequisites.map((prereq, index) => (
-                      <li key={index} className={`flex items-start gap-3 text-gray-300 transform transition-all duration-500 ease-out hover:translate-x-2 hover:text-white`}>
-                        <span className="text-blue-400 mt-1 animate-pulse">▶️</span>
+                      <li key={index} className={`flex items-start gap-2.5 md:gap-3 text-gray-300 text-sm md:text-base transform transition-all duration-500 ease-out md:hover:translate-x-2 md:hover:text-white`}>
+                        <span className="text-blue-400 mt-0.5 md:mt-1 animate-pulse">▶️</span>
                         {prereq}
                       </li>
                     ))}
@@ -261,34 +266,34 @@ const CourseDetailPage = memo(function CourseDetailPage({ course }: CourseDetail
                 </div>
 
                 <div className="transform transition-all duration-900 ease-out">
-                  <h4 className="text-xl font-bold text-white mb-4">Certification</h4>
-                  <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 p-6 rounded-xl border border-yellow-500/30 hover:scale-105 transition-transform duration-300">
-                    <p className="text-yellow-300 font-semibold">🏆 {course.certification}</p>
+                  <h4 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">Certification</h4>
+                  <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 p-4 md:p-6 rounded-xl border border-yellow-500/30 md:hover:scale-105 transition-transform duration-300">
+                    <p className="text-yellow-300 font-semibold text-sm md:text-base">🏆 {course.certification}</p>
                   </div>
                 </div>
               </div>
             )}
 
             {activeTab === "syllabus" && (
-              <div className={`space-y-6 transform transition-all duration-700 ease-out ${
+              <div className={`space-y-4 md:space-y-6 transform transition-all duration-700 ease-out ${
                 activeTab === "syllabus" ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
               }`}>
-                <h3 className="text-2xl font-bold text-white mb-6">Course Syllabus</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6">Course Syllabus</h3>
                 {course.modules.map((module, index) => (
-                  <div key={index} className={`bg-white/5 rounded-xl p-6 border border-white/10 transform transition-all duration-500 ease-out hover:scale-105 hover:bg-white/10`}>
-                    <div className="flex items-center justify-between mb-4">
-                      <h4 className="text-lg font-bold text-white">
+                  <div key={index} className={`bg-white/5 rounded-xl p-4 md:p-6 border border-white/10 transform transition-all duration-500 ease-out md:hover:scale-105 md:hover:bg-white/10`}>
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3 md:mb-4">
+                      <h4 className="text-base md:text-lg font-bold text-white">
                         Module {index + 1}: {module.title}
                       </h4>
-                      <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm animate-pulse">
+                      <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs md:text-sm animate-pulse w-fit">
                         {module.duration}
                       </span>
                     </div>
                     <ul className="space-y-2">
                       {module.topics.map((topic, topicIndex) => (
-                        <li key={topicIndex} className="flex items-start gap-3 text-gray-300 hover:text-white transition-colors duration-300">
-                          <span className="text-purple-400 mt-1 animate-bounce">📌</span>
-                          {topic}
+                        <li key={topicIndex} className="flex items-start gap-2 md:gap-3 text-gray-300 text-sm md:text-base hover:text-white transition-colors duration-300">
+                          <span className="text-purple-400 mt-0.5 md:mt-1 animate-bounce text-sm">📌</span>
+                          <span className="flex-1">{topic}</span>
                         </li>
                       ))}
                     </ul>
@@ -298,16 +303,16 @@ const CourseDetailPage = memo(function CourseDetailPage({ course }: CourseDetail
             )}
 
             {activeTab === "objectives" && (
-              <div className={`space-y-6 transform transition-all duration-700 ease-out ${
+              <div className={`space-y-4 md:space-y-6 transform transition-all duration-700 ease-out ${
                 activeTab === "objectives" ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
               }`}>
-                <h3 className="text-2xl font-bold text-white mb-6">Learning Objectives</h3>
-                <div className="grid md:grid-cols-2 gap-4">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6">Learning Objectives</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                   {course.objectives.map((objective, index) => (
-                    <div key={index} className="bg-gradient-to-r from-green-500/20 to-teal-500/20 p-6 rounded-xl border border-green-500/30 transform transition-all duration-500 ease-out hover:scale-105 hover:shadow-lg">
-                      <div className="flex items-start gap-3">
-                        <span className="text-green-400 text-xl animate-pulse">🎯</span>
-                        <p className="text-gray-200 leading-relaxed">{objective}</p>
+                    <div key={index} className="bg-gradient-to-r from-green-500/20 to-teal-500/20 p-4 md:p-6 rounded-xl border border-green-500/30 transform transition-all duration-500 ease-out md:hover:scale-105 md:hover:shadow-lg">
+                      <div className="flex items-start gap-2.5 md:gap-3">
+                        <span className="text-green-400 text-lg md:text-xl animate-pulse">🎯</span>
+                        <p className="text-gray-200 leading-relaxed text-sm md:text-base">{objective}</p>
                       </div>
                     </div>
                   ))}
@@ -316,21 +321,21 @@ const CourseDetailPage = memo(function CourseDetailPage({ course }: CourseDetail
             )}
 
             {activeTab === "instructor" && (
-              <div className={`space-y-6 transform transition-all duration-700 ease-out ${
+              <div className={`space-y-4 md:space-y-6 transform transition-all duration-700 ease-out ${
                 activeTab === "instructor" ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
               }`}>
-                <h3 className="text-2xl font-bold text-white mb-6">Your Instructor</h3>
-                <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 p-8 rounded-xl border border-purple-500/30 transform transition-all duration-500 ease-out hover:scale-105">
-                  <div className="flex items-center gap-6 mb-6">
-                    <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-3xl text-white animate-bounce">
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6">Your Instructor</h3>
+                <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 p-5 md:p-8 rounded-xl border border-purple-500/30 transform transition-all duration-500 ease-out md:hover:scale-105">
+                  <div className="flex items-center gap-4 md:gap-6 mb-4 md:mb-6">
+                    <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-2xl md:text-3xl text-white animate-bounce flex-shrink-0">
                       👨‍🏫
                     </div>
                     <div>
-                      <h4 className="text-2xl font-bold text-white">{course.instructor}</h4>
-                      <p className="text-purple-300">Senior Technical Instructor</p>
+                      <h4 className="text-xl md:text-2xl font-bold text-white">{course.instructor}</h4>
+                      <p className="text-purple-300 text-sm md:text-base">Senior Technical Instructor</p>
                     </div>
                   </div>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                     Experienced industry professional with years of hands-on experience in teaching and implementing enterprise solutions. 
                     Certified instructor with proven track record of student success.
                   </p>
@@ -341,63 +346,63 @@ const CourseDetailPage = memo(function CourseDetailPage({ course }: CourseDetail
         </div>
       </div>
 
-      {/* Enquiry Modal */}
+      {/* Enquiry Modal - Mobile Optimized */}
       {showEnquiry && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 rounded-3xl p-8 max-w-md w-full border border-white/20 transform animate-slideInUp">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-2xl font-bold text-white">Course Enquiry</h3>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 md:p-4 bg-black/70 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 rounded-2xl md:rounded-3xl p-5 md:p-8 max-w-md w-full border border-white/20 transform animate-slideInUp max-h-[90vh] overflow-y-auto">
+            <div className="flex items-center justify-between mb-5 md:mb-6">
+              <h3 className="text-xl md:text-2xl font-bold text-white">Course Enquiry</h3>
               <button 
                 onClick={() => setShowEnquiry(false)}
-                className="text-gray-400 hover:text-white transition-colors hover:rotate-90 transform duration-300"
+                className="text-gray-400 hover:text-white transition-colors md:hover:rotate-90 transform duration-300 text-2xl md:text-3xl w-8 h-8 flex items-center justify-center"
               >
                 ✕
               </button>
             </div>
             
-            <form onSubmit={handleEnquiry} className="space-y-4">
-              <div className="transform transition-all duration-300 hover:scale-105">
+            <form onSubmit={handleEnquiry} className="space-y-3.5 md:space-y-4">
+              <div className="transform transition-all duration-300 md:hover:scale-105">
                 <input 
                   type="text"
                   name="name"
                   placeholder="Your Name" 
                   required
                   disabled={enquiryLoading}
-                  className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:scale-105 transition-all duration-300 disabled:opacity-50"
+                  className="w-full p-3.5 md:p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 md:focus:scale-105 transition-all duration-300 disabled:opacity-50 text-sm md:text-base"
                 />
               </div>
-              <div className="transform transition-all duration-300 hover:scale-105">
+              <div className="transform transition-all duration-300 md:hover:scale-105">
                 <input 
                   type="email"
                   name="email"
                   placeholder="Email Address" 
                   required
                   disabled={enquiryLoading}
-                  className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:scale-105 transition-all duration-300 disabled:opacity-50"
+                  className="w-full p-3.5 md:p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 md:focus:scale-105 transition-all duration-300 disabled:opacity-50 text-sm md:text-base"
                 />
               </div>
-              <div className="transform transition-all duration-300 hover:scale-105">
+              <div className="transform transition-all duration-300 md:hover:scale-105">
                 <input 
                   type="tel"
                   name="phone"
                   placeholder="Phone Number" 
                   required
                   disabled={enquiryLoading}
-                  className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:scale-105 transition-all duration-300 disabled:opacity-50"
+                  className="w-full p-3.5 md:p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 md:focus:scale-105 transition-all duration-300 disabled:opacity-50 text-sm md:text-base"
                 />
               </div>
-              <div className="transform transition-all duration-300 hover:scale-105">
+              <div className="transform transition-all duration-300 md:hover:scale-105">
                 <textarea
                   name="message"
                   placeholder="Your Message (Optional)" 
                   rows={4}
                   disabled={enquiryLoading}
-                  className="w-full p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:scale-105 transition-all duration-300 resize-none disabled:opacity-50"
+                  className="w-full p-3.5 md:p-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 md:focus:scale-105 transition-all duration-300 resize-none disabled:opacity-50 text-sm md:text-base"
                 />
               </div>
               
               {enquiryMessage && (
-                <div className={`p-4 rounded-xl text-center font-semibold ${
+                <div className={`p-3.5 md:p-4 rounded-xl text-center font-semibold text-sm md:text-base ${
                   enquiryMessage.startsWith('✅') 
                     ? 'bg-green-500/20 text-green-300 border border-green-500/30' 
                     : 'bg-red-500/20 text-red-300 border border-red-500/30'
@@ -409,7 +414,7 @@ const CourseDetailPage = memo(function CourseDetailPage({ course }: CourseDetail
               <button 
                 type="submit"
                 disabled={enquiryLoading}
-                className="w-full bg-gradient-to-r from-green-600 to-teal-600 text-white py-4 rounded-xl font-bold hover:from-green-700 hover:to-teal-700 transition-all duration-300 hover:scale-105 transform disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-green-600 to-teal-600 text-white py-3.5 md:py-4 rounded-xl font-bold text-base md:text-lg hover:from-green-700 hover:to-teal-700 transition-all duration-300 md:hover:scale-105 transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {enquiryLoading ? '⏳ Sending...' : '📧 Send Enquiry'}
               </button>

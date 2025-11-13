@@ -736,7 +736,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-white/80 mb-6 leading-relaxed">
-                  Leading IT Training Institute in Indore since 2010. Empowering students with cutting-edge technology skills and globally recognized certifications.
+                  Leading IT Training Institute in Indore since 2015. Empowering students with cutting-edge technology skills and globally recognized certifications.
                 </p>
                 <div className="flex gap-4">
                   {[

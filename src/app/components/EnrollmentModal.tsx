@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 interface EnrollmentModalProps {
   isOpen: boolean;
@@ -39,6 +40,22 @@ export default function EnrollmentModal({ isOpen, onClose, courseData }: Enrollm
     referralSource: 'google'
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -144,18 +161,19 @@ Thank you for choosing LITC Institute! 🎓`);
     }
   };
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
-  return (
+  const modalContent = (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-[999999] flex items-start justify-center pt-4 sm:pt-6 md:pt-8 pb-4 bg-black/80 backdrop-blur-md animate-fadeIn overflow-y-auto"
+      style={{ paddingLeft: 'max(1rem, env(safe-area-inset-left))', paddingRight: 'max(1rem, env(safe-area-inset-right))' }}
       onClick={() => {
         setEnrollmentStep('options');
         onClose();
       }}
     >
       <div 
-        className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 rounded-3xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto border border-blue-500/30"
+        className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 rounded-3xl shadow-2xl w-full max-w-3xl mx-auto mb-4 border border-blue-500/30"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -517,4 +535,6 @@ Thank you for choosing LITC Institute! 🎓`);
       </div>
     </div>
   );
+
+  return createPortal(modalContent, document.body);
 }

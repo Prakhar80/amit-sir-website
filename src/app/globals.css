@@ -24,3 +24,31 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Mobile optimization utilities */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Touch-friendly tap highlight removal */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smooth scrolling for better mobile UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent text selection on buttons for better mobile feel */
+button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
