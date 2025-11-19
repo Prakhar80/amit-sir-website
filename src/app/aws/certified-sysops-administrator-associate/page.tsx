@@ -89,8 +89,8 @@ const awsSysOpsAdminData = {
     }
   ],
   certification: "AWS Certified SysOps Administrator – Associate (SOA-C02)",
-  price: "22,999",
-  originalPrice: "32,999",
+  price: "23,000",
+  originalPrice: "33,000",
   features: [
     "Official AWS curriculum",
     "Hands-on labs with real AWS environments",

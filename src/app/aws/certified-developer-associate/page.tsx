@@ -89,8 +89,8 @@ const awsDeveloperData = {
     }
   ],
   certification: "AWS Certified Developer – Associate (DVA-C02)",
-  price: "23,999",
-  originalPrice: "33,999",
+  price: "24,000",
+  originalPrice: "34,000",
   features: [
     "Official AWS curriculum",
     "Hands-on coding labs and projects",

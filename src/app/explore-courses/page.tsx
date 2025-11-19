@@ -307,23 +307,6 @@ const coursesData: Course[] = [
 
   // Cybersecurity Courses
   {
-    id: 17,
-    title: "Certified Ethical Hacker (CEH)",
-    description: "Learn ethical hacking techniques, penetration testing, and cybersecurity fundamentals.",
-    category: "Cybersecurity",
-    level: "Intermediate",
-    duration: "10-12 Weeks",
-    icon: "👨‍💻",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=600&q=80",
-    color: "from-gray-700 to-red-600",
-    urlPath: "/cybersecurity/ceh",
-    certification: "CEH v12",
-    price: "₹30,000",
-    rating: 4.8,
-    students: "1.5K+",
-    features: ["Ethical Hacking", "Penetration Testing", "Security Tools", "Hands-on Labs"]
-  },
-  {
     id: 18,
     title: "CompTIA Security+",
     description: "Foundation cybersecurity certification covering security concepts, threats, and risk management.",
@@ -339,23 +322,6 @@ const coursesData: Course[] = [
     rating: 4.7,
     students: "2.2K+",
     features: ["Security Fundamentals", "Risk Management", "Industry Standard", "Career Foundation"]
-  },
-  {
-    id: 19,
-    title: "CISSP - Information Security",
-    description: "Advanced information security management covering security architecture and governance.",
-    category: "Cybersecurity",
-    level: "Advanced",
-    duration: "12-14 Weeks",
-    icon: "🔐",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=600&q=80",
-    color: "from-indigo-600 to-purple-700",
-    urlPath: "/cybersecurity/cissp",
-    certification: "CISSP",
-    price: "₹40,000",
-    rating: 4.9,
-    students: "600+",
-    features: ["Security Management", "Governance", "Architecture", "Executive Level"]
   },
 
   // Docker & Kubernetes
@@ -422,7 +388,7 @@ const coursesData: Course[] = [
     icon: "☁️",
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80",
     color: "from-blue-500 to-azure-500",
-    urlPath: "/microsoft/azure-fundamentals",
+    urlPath: "/microsoft/az-900",
     certification: "AZ-900",
     price: "₹18,000",
     rating: 4.6,
@@ -439,7 +405,7 @@ const coursesData: Course[] = [
     icon: "⚙️",
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80",
     color: "from-blue-600 to-indigo-600",
-    urlPath: "/microsoft/azure-administrator",
+    urlPath: "/microsoft/az-104",
     certification: "AZ-104",
     price: "₹25,000",
     rating: 4.7,

@@ -403,7 +403,7 @@ export default function Home() {
             {[
               {
                 course: "CI/CD Tools (DevOps)",
-                date: "06th September 2025",
+                date: "06th December 2025",
                 time: "09:00 AM - 11:00 PM",
                 schedule: "Weekends (Sat-Sun)",
                 instructor: "DevOps Expert",
@@ -412,7 +412,7 @@ export default function Home() {
               },
               {
                 course: "Ansible Training (RHCE)",
-                date: "13th September 2025",
+                date: "13th December 2025",
                 time: "09:00 AM - 11:00 AM",
                 schedule: "Weekends (Sat-Sun)",
                 instructor: "Ansible Expert",
@@ -421,7 +421,7 @@ export default function Home() {
               },
               {
                 course: "Terraform Training (IAC)",
-                date: "13th September 2025",
+                date: "13th December 2025",
                 time: "08:00 PM - 10:00 PM",
                 schedule: "Weekends (Sat-Sun)",
                 instructor: "Cloud Expert",
@@ -430,7 +430,7 @@ export default function Home() {
               },
               {
                 course: "AWS Cloud Training (SAA-C03)",
-                date: "20th September 2025",
+                date: "20th December 2025",
                 time: "08:00 AM - 11:00 AM",
                 schedule: "Weekends (Sat-Sun)",
                 instructor: "AWS Expert",
@@ -439,7 +439,7 @@ export default function Home() {
               },
               {
                 course: "Docker & Kubernetes (CKA)",
-                date: "20th September 2025",
+                date: "20th December 2025",
                 time: "08:30 AM - 11:00 AM",
                 schedule: "Weekends (Sat-Sun)",
                 instructor: "Kubernetes Expert",
@@ -448,7 +448,7 @@ export default function Home() {
               },
               {
                 course: "Linux Training (RHCSA)",
-                date: "22nd September 2025",
+                date: "22nd December 2025",
                 time: "08:30 AM - 10:30 AM",
                 schedule: "Weekdays (Mon-Fri)",
                 instructor: "Linux Expert",

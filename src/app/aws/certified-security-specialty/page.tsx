@@ -89,8 +89,8 @@ const awsSecurityData = {
     }
   ],
   certification: "AWS Certified Security – Specialty (SCS-C02)",
-  price: "28,999",
-  originalPrice: "41,999",
+  price: "32,000",
+  originalPrice: "45,000",
   features: [
     "Specialty-level security curriculum",
     "Hands-on security labs and simulations",

@@ -93,11 +93,11 @@ export default function CampusVisitModal({ isOpen, onClose }: CampusVisitModalPr
         onClose();
       } else {
         console.error('❌ Booking failed:', result);
-        alert(`⚠️ Unable to book visit online.\n\n📞 Please call us directly:\n+91-9425094250\n\nWe're available Mon-Sat, 9 AM - 7 PM`);
+        alert(`⚠️ Unable to book visit online.\n\n📞 Please call us directly:\n+91-9522220892\n\nWe're available Mon-Sat, 9 AM - 7 PM`);
       }
     } catch (error) {
       console.error('❌ Campus visit booking error:', error);
-      alert(`❌ Booking failed.\n\n📞 Please contact us:\nPhone: +91-9425094250\nEmail: yyradhe751@gmail.com`);
+      alert(`❌ Booking failed.\n\n📞 Please contact us:\nPhone: +91-9522220892\nEmail: yyradhe751@gmail.com`);
     } finally {
       setIsSubmitting(false);
     }

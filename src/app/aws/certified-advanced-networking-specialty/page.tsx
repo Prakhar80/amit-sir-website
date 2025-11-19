@@ -89,8 +89,8 @@ const awsNetworkingData = {
     }
   ],
   certification: "AWS Certified Advanced Networking – Specialty (ANS-C01)",
-  price: "29,999",
-  originalPrice: "42,999",
+  price: "34,000",
+  originalPrice: "48,000",
   features: [
     "Specialty-level AWS curriculum",
     "Advanced networking labs",

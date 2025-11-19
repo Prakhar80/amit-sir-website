@@ -86,7 +86,7 @@ Thank you! 🙏`;
   };
 
   const handleCallEnroll = () => {
-    window.location.href = 'tel:+919425094250';
+    window.location.href = 'tel:+919522220892';
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -132,7 +132,7 @@ Thank you! 🙏`;
 You will receive enrollment confirmation within 2 hours after payment verification.
 
 📞 Need help?
-Call: +91-9425094250
+Call: +91-9522220892
 
 Thank you for choosing LITC Institute! 🎓`);
         
@@ -151,11 +151,11 @@ Thank you for choosing LITC Institute! 🎓`);
         onClose();
       } else {
         console.error('❌ Enrollment failed:', result);
-        alert(`⚠️ Unable to process enrollment online.\n\n📞 Please contact us directly:\nPhone: +91-9425094250\nWhatsApp: +91-8225852734\nEmail: yyradhe751@gmail.com`);
+        alert(`⚠️ Unable to process enrollment online.\n\n📞 Please contact us directly:\nPhone: +91-9522220892\nWhatsApp: +91-8225852734\nEmail: yyradhe751@gmail.com`);
       }
     } catch (error) {
       console.error('❌ Enrollment error:', error);
-      alert(`❌ Enrollment failed.\n\n📞 Please reach out to us:\nPhone: +91-9425094250\nWhatsApp: +91-8225852734`);
+      alert(`❌ Enrollment failed.\n\n📞 Please reach out to us:\nPhone: +91-9522220892\nWhatsApp: +91-8225852734`);
     } finally {
       setIsSubmitting(false);
     }
@@ -280,7 +280,7 @@ Thank you for choosing LITC Institute! 🎓`);
                       Speak directly with our admission team for detailed information and assistance
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      <span className="bg-white/20 px-3 py-1 rounded-full text-xs text-white">📞 +91-9425094250</span>
+                      <span className="bg-white/20 px-3 py-1 rounded-full text-xs text-white">📞 +91-9522220892</span>
                       <span className="bg-white/20 px-3 py-1 rounded-full text-xs text-white">🕒 Mon-Sat 9AM-7PM</span>
                       <span className="bg-white/20 px-3 py-1 rounded-full text-xs text-white">🎯 Direct Support</span>
                     </div>

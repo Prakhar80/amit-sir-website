@@ -77,8 +77,8 @@ const awsCloudPractitionerData = {
     }
   ],
   certification: "AWS Certified Cloud Practitioner (CLF-C02)",
-  price: "12,999",
-  originalPrice: "18,999",
+  price: "18,000",
+  originalPrice: "25,000",
   features: [
     "Official AWS curriculum",
     "Practice exams and mock tests",
