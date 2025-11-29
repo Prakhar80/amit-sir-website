@@ -151,7 +151,9 @@ export default function DevOpsOnly() {
     originalPrice: "50,000",
     instructor: "Certified DevOps Professional with 10+ years experience",
     nextBatch: "Starting Soon",
-    mode: ["Online", "Live Classes", "Hands-on Labs"]
+    mode: ["Online", "Live Classes", "Hands-on Labs"],
+    pdfUrl: "/pdfs/devops-only-syllabus.pdf",
+    pdfName: "DevOps Only Syllabus"
   };
 
   return <CourseDetailPage course={courseData} />;

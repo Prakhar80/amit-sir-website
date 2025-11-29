@@ -9,19 +9,14 @@ export async function POST(request: Request) {
     console.log('Email:', enrollmentData.email);
     console.log('Course:', enrollmentData.course?.name);
 
-    // Calculate final price
-    const basePrice = parseInt(enrollmentData.course?.price.replace(/[^0-9]/g, '') || '0');
-    const fullPaymentDiscount = enrollmentData.paymentPlan === 'full' ? basePrice * 0.05 : 0;
-    const finalPrice = basePrice - fullPaymentDiscount;
-
     // Send email to student via FormSubmit (Works without API keys!)
-    console.log('📧 Sending payment email to student...');
+    console.log('📧 Sending enrollment confirmation to student...');
     
     const emailContent = `
-<h1>🎓 Payment Required - ${enrollmentData.course?.name}</h1>
+<h1>🎓 Enrollment Confirmation - ${enrollmentData.course?.name}</h1>
 
 <h2>Hello ${enrollmentData.name}!</h2>
-<p>Welcome to LITC Institute! Your enrollment has been received.</p>
+<p>Welcome to LITC Institute! Your enrollment has been received successfully.</p>
 
 <h3>📚 Course Details:</h3>
 <ul>
@@ -32,34 +27,18 @@ export async function POST(request: Request) {
   <li><strong>Batch:</strong> ${enrollmentData.batchTiming}</li>
 </ul>
 
-<h3>💰 Payment Amount: ₹${finalPrice.toLocaleString('en-IN')}</h3>
 <p><strong>Enrollment ID:</strong> ${enrollmentData.enrollmentId}</p>
 
 <hr>
 
-<h2>💳 UPI Payment Details</h2>
-<p><strong>UPI ID:</strong> yravi8804@axl</p>
-<p><strong>Bank:</strong> Union Bank Of India - 0942</p>
-<p><strong>Amount:</strong> ₹${finalPrice.toLocaleString('en-IN')}</p>
-
-<h3>📋 Steps to Pay:</h3>
-<ol>
-  <li>Open any UPI app (Paytm, PhonePe, Google Pay, etc.)</li>
-  <li>Enter UPI ID: <strong>yravi8804@axl</strong></li>
-  <li>Enter amount: <strong>₹${finalPrice.toLocaleString('en-IN')}</strong></li>
-  <li>Add remark: <strong>${enrollmentData.enrollmentId}</strong></li>
-  <li>Complete payment</li>
-  <li><strong>Take screenshot</strong></li>
-</ol>
-
-<h3>📤 Send Payment Proof:</h3>
-<p>After payment, send screenshot to:</p>
+<h2>📞 Next Steps</h2>
+<p>Our team will contact you within 24 hours to discuss:</p>
 <ul>
-  <li>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/918225852734">+91 8225852734</a></li>
-  <li>📧 <strong>Email:</strong> <a href="mailto:yyradhe751@gmail.com">yyradhe751@gmail.com</a></li>
+  <li>Course fee and payment options</li>
+  <li>Batch start date and schedule</li>
+  <li>Course materials and resources</li>
+  <li>Any questions you may have</li>
 </ul>
-
-<p><strong>⚠️ Important:</strong> Enrollment confirmed within 1-2 hours after payment verification.</p>
 
 <hr>
 
@@ -78,15 +57,13 @@ export async function POST(request: Request) {
         'Accept': 'application/json'
       },
       body: JSON.stringify({
-        _subject: `Payment Required - ${enrollmentData.course?.name} - ${enrollmentData.enrollmentId}`,
+        _subject: `Enrollment Confirmation - ${enrollmentData.course?.name}`,
         _template: 'box',
         _captcha: 'false',
         message: emailContent,
         enrollmentId: enrollmentData.enrollmentId,
         studentName: enrollmentData.name,
-        course: enrollmentData.course?.name,
-        amount: `₹${finalPrice.toLocaleString('en-IN')}`,
-        upiId: 'yravi8804@axl'
+        course: enrollmentData.course?.name
       })
     });
 
@@ -120,15 +97,14 @@ export async function POST(request: Request) {
 <ul>
   <li><strong>Course:</strong> ${enrollmentData.course?.name}</li>
   <li><strong>Code:</strong> ${enrollmentData.course?.code}</li>
-  <li><strong>Amount:</strong> ₹${finalPrice.toLocaleString('en-IN')}</li>
   <li><strong>Batch:</strong> ${enrollmentData.batchTiming}</li>
   <li><strong>Payment Plan:</strong> ${enrollmentData.paymentPlan}</li>
 </ul>
 
 <h2>Action Required:</h2>
-<p>✅ Student has been sent payment instructions via email</p>
-<p>⏰ Wait for payment screenshot on WhatsApp (8225852734) or Email</p>
-<p>💳 Verify payment and send confirmation</p>
+<p>✅ Contact student within 24 hours</p>
+<p>📞 Discuss course fee and payment options</p>
+<p>✉️ Send confirmation email after enrollment finalized</p>
 
 <h3>Quick Actions:</h3>
 <p>📞 Call: <a href="tel:${enrollmentData.phone}">${enrollmentData.phone}</a></p>
@@ -150,8 +126,7 @@ export async function POST(request: Request) {
         studentName: enrollmentData.name,
         studentEmail: enrollmentData.email,
         studentPhone: enrollmentData.phone,
-        course: enrollmentData.course?.name,
-        amount: `₹${finalPrice.toLocaleString('en-IN')}`
+        course: enrollmentData.course?.name
       })
     });
 
@@ -169,17 +144,16 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: 'Enrollment completed! Payment instructions sent to your email.',
+      message: 'Enrollment completed! Our team will contact you shortly.',
       enrollmentId: enrollmentData.enrollmentId,
       emails: {
         student: studentResult,
         admin: adminResult
       },
-      instructions: {
-        upiId: 'yravi8804@axl',
-        amount: `₹${finalPrice.toLocaleString('en-IN')}`,
+      contact: {
         whatsapp: '+91-8225852734',
-        email: 'yyradhe751@gmail.com'
+        email: 'yyradhe751@gmail.com',
+        phone: '+91-9425094250'
       }
     });
 

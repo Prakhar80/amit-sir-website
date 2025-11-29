@@ -7,14 +7,9 @@ export async function POST(request: Request) {
     console.log('🎓 Processing enrollment...');
     console.log('Student:', enrollmentData.name, '|', enrollmentData.email);
 
-    // Calculate price
-    const basePrice = parseInt(enrollmentData.course?.price.replace(/[^0-9]/g, '') || '0');
-    const discount = enrollmentData.paymentPlan === 'full' ? basePrice * 0.05 : 0;
-    const finalPrice = basePrice - discount;
-
     // Simple email content for student
     const studentMessage = `
-🎓 PAYMENT REQUIRED - ${enrollmentData.course?.name}
+🎓 ENROLLMENT CONFIRMATION - ${enrollmentData.course?.name}
 
 Hello ${enrollmentData.name}!
 
@@ -30,24 +25,14 @@ Level: ${enrollmentData.course?.level}
 Batch: ${enrollmentData.batchTiming}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💰 PAYMENT DETAILS
+📞 NEXT STEPS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Amount: ₹${finalPrice.toLocaleString('en-IN')}
 Enrollment ID: ${enrollmentData.enrollmentId}
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-💳 UPI PAYMENT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-UPI ID: yravi8804@axl
-Bank: Union Bank Of India - 0942
-Amount: ₹${finalPrice.toLocaleString('en-IN')}
-
-📋 STEPS:
-1. Open UPI app (Paytm/PhonePe/GPay)
-2. Enter UPI ID: yravi8804@axl
-3. Amount: ₹${finalPrice.toLocaleString('en-IN')}
-4. Remark: ${enrollmentData.enrollmentId}
-5. Pay & take screenshot
+Our team will contact you within 24 hours to discuss:
+- Course fee and payment options
+- Batch start date and timings
+- Course materials and access
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📤 SEND PAYMENT PROOF
@@ -78,17 +63,16 @@ Phone: ${enrollmentData.phone}
 Enrollment ID: ${enrollmentData.enrollmentId}
 
 Course: ${enrollmentData.course?.name} (${enrollmentData.course?.code})
-Amount: ₹${finalPrice.toLocaleString('en-IN')}
 Batch: ${enrollmentData.batchTiming}
 Payment Plan: ${enrollmentData.paymentPlan}
 
 ACTION REQUIRED:
-- Wait for payment screenshot
-- Verify payment (UPI: yravi8804@axl)
+- Contact student within 24 hours
+- Discuss course fee and payment options
 - Send confirmation email
 - Add to WhatsApp group
 
-Payment channels: WhatsApp (8225852734) or Email (yyradhe751@gmail.com)
+Contact channels: WhatsApp (8225852734) or Email (yyradhe751@gmail.com)
     `.trim();
 
     console.log('📧 Attempting to send emails...');
@@ -122,15 +106,12 @@ Payment channels: WhatsApp (8225852734) or Email (yyradhe751@gmail.com)
         'Duration': enrollmentData.course?.duration,
         'Level': enrollmentData.course?.level,
         'Batch': enrollmentData.batchTiming,
-        'Amount': `₹${finalPrice.toLocaleString('en-IN')}`,
         'Payment Plan': enrollmentData.paymentPlan,
         
-        // Payment instructions
+        // Enrollment message
         'Message': studentMessage,
         
-        // Payment details  
-        'UPI ID': 'yravi8804@axl',
-        'Bank': 'Union Bank Of India - 0942',
+        // Contact details  
         'WhatsApp': '+91-8225852734',
         'Email Contact': 'yyradhe751@gmail.com',
         'Phone': '+91-9425094250'
@@ -178,7 +159,6 @@ Payment channels: WhatsApp (8225852734) or Email (yyradhe751@gmail.com)
           'Student Email': enrollmentData.email,
           'Student Phone': enrollmentData.phone,
           'Course': `${enrollmentData.course?.name} (${enrollmentData.course?.code})`,
-          'Amount': `₹${finalPrice.toLocaleString('en-IN')}`,
           'Batch': enrollmentData.batchTiming,
           'Payment Plan': enrollmentData.paymentPlan,
           'Education': enrollmentData.education,

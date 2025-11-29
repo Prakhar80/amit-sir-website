@@ -8,11 +8,6 @@ export async function POST(request: Request) {
     console.log('🎓 Processing enrollment...');
     console.log('Student:', enrollmentData.name, '|', enrollmentData.email);
 
-    // Calculate price
-    const basePrice = parseInt(enrollmentData.course?.price.replace(/[^0-9]/g, '') || '0');
-    const discount = enrollmentData.paymentPlan === 'full' ? basePrice * 0.05 : 0;
-    const finalPrice = basePrice - discount;
-
     // Create Gmail transporter
     // Note: You need to enable "App Password" in Gmail settings
     const transporter = nodemailer.createTransport({
@@ -62,57 +57,15 @@ export async function POST(request: Request) {
       <p><strong>Batch Timing:</strong> ${enrollmentData.batchTiming}</p>
     </div>
 
-    <div class="payment-box">
-      <h3 style="margin-top: 0; color: #1e40af;">💰 Payment Information</h3>
-      <p><strong>Total Amount:</strong> <span style="font-size: 24px; color: #059669;">₹${finalPrice.toLocaleString('en-IN')}</span></p>
-      ${enrollmentData.paymentPlan === 'full' ? '<p style="color: #10b981;">✅ 5% discount applied for full payment!</p>' : ''}
-      
-      <div class="highlight">
-        <p style="margin: 0; font-size: 16px;"><strong>⚠️ COMPLETE PAYMENT TO CONFIRM ENROLLMENT</strong></p>
-      </div>
-    </div>
-
     <div class="section">
-      <h3>💳 UPI Payment Details</h3>
-      <div class="upi-details">
-        <p>UPI ID: <span style="color: #dc2626;">yravi8804@axl</span></p>
-        <p>Bank: Union Bank Of India - 0942</p>
-        <p>Amount: ₹${finalPrice.toLocaleString('en-IN')}</p>
-      </div>
-    </div>
-
-    <div class="steps">
-      <h3>📱 Payment Steps</h3>
-      <ol>
-        <li>Open any UPI app (Paytm / PhonePe / Google Pay)</li>
-        <li>Select "Send Money to UPI ID"</li>
-        <li>Enter UPI ID: <strong>yravi8804@axl</strong></li>
-        <li>Enter Amount: <strong>₹${finalPrice.toLocaleString('en-IN')}</strong></li>
-        <li>Add Remark: <strong>${enrollmentData.enrollmentId}</strong></li>
-        <li>Complete payment & take screenshot</li>
-      </ol>
-    </div>
-
-    <div class="section">
-      <h3>📤 Send Payment Proof</h3>
-      <p>After payment, send screenshot to:</p>
-      <div style="text-align: center; margin: 20px 0;">
-        <a href="https://wa.me/918225852734?text=Payment%20Done%20-%20${enrollmentData.enrollmentId}" class="button" style="background: #25d366;">
-          📱 WhatsApp: +91-8225852734
-        </a>
-        <a href="mailto:yyradhe751@gmail.com?subject=Payment%20Screenshot%20-%20${enrollmentData.enrollmentId}" class="button" style="background: #3b82f6;">
-          📧 Email Payment Proof
-        </a>
-      </div>
-      
-      <div class="highlight">
-        <p><strong>⏰ Important:</strong></p>
-        <ul style="margin: 10px 0;">
-          <li>Send payment proof within 24 hours</li>
-          <li>Include Enrollment ID: ${enrollmentData.enrollmentId}</li>
-          <li>Confirmation within 1-2 hours after verification</li>
-        </ul>
-      </div>
+      <h3>📞 Next Steps</h3>
+      <p>Our team will contact you within 24 hours to discuss:</p>
+      <ul>
+        <li>Course fee and payment options</li>
+        <li>Batch start date and schedule</li>
+        <li>Course materials and resources</li>
+        <li>Any questions you may have</li>
+      </ul>
     </div>
 
     <div class="section">
@@ -178,8 +131,7 @@ export async function POST(request: Request) {
     </div>
 
     <div class="info-box">
-      <h3>💰 Payment Information</h3>
-      <p><strong>Amount:</strong> ₹${finalPrice.toLocaleString('en-IN')}</p>
+      <h3>💼 Additional Information</h3>
       <p><strong>Payment Plan:</strong> ${enrollmentData.paymentPlan}</p>
       <p><strong>Referral Source:</strong> ${enrollmentData.referralSource}</p>
     </div>
@@ -187,8 +139,8 @@ export async function POST(request: Request) {
     <div class="action-required">
       <h3>⚠️ ACTION REQUIRED</h3>
       <ol>
-        <li>Wait for payment screenshot from student</li>
-        <li>Verify payment in UPI: <strong>yravi8804@axl</strong></li>
+        <li>Contact student within 24 hours</li>
+        <li>Discuss course fee and payment options</li>
         <li>Send enrollment confirmation email</li>
         <li>Add student to WhatsApp group</li>
         <li>Provide course access credentials</li>
@@ -219,7 +171,7 @@ export async function POST(request: Request) {
       await transporter.sendMail({
         from: '"LITC Institute" <yyradhe751@gmail.com>',
         to: enrollmentData.email,
-        subject: `Payment Required - ${enrollmentData.course?.name} | ID: ${enrollmentData.enrollmentId}`,
+        subject: `Enrollment Confirmation - ${enrollmentData.course?.name} | ID: ${enrollmentData.enrollmentId}`,
         html: studentEmailHTML,
         replyTo: 'yyradhe751@gmail.com'
       });
@@ -261,15 +213,9 @@ export async function POST(request: Request) {
       },
       enrollmentId: enrollmentData.enrollmentId,
       message: results.student 
-        ? '✅ Payment instructions sent to your email! Check inbox and spam folder.'
-        : '⚠️ Email sending in progress. You will receive payment details shortly.',
+        ? '✅ Enrollment confirmation sent to your email! Our team will contact you shortly.'
+        : '⚠️ Email sending in progress. You will receive confirmation details shortly.',
       errors: results.errors.length > 0 ? results.errors : undefined,
-      paymentInfo: {
-        upiId: 'yravi8804@axl',
-        bank: 'Union Bank Of India - 0942',
-        amount: `₹${finalPrice.toLocaleString('en-IN')}`,
-        enrollmentId: enrollmentData.enrollmentId
-      },
       contact: {
         whatsapp: '+91-8225852734',
         phone: '+91-9425094250',

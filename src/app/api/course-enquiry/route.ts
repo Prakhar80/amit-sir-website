@@ -73,11 +73,6 @@ export async function POST(request: Request) {
                   <span class="label">⏱️ Duration:</span><br/>
                   ${courseDuration}
                 </div>
-                
-                <div class="detail-row">
-                  <span class="label">💰 Price:</span><br/>
-                  <strong style="font-size: 18px; color: #4CAF50;">${coursePrice}</strong>
-                </div>
               </div>
 
               <div style="background: #fff3cd; padding: 20px; border-radius: 10px; text-align: center; margin-top: 20px;">
@@ -130,7 +125,7 @@ export async function POST(request: Request) {
               <ul style="background: white; padding: 20px 20px 20px 40px; border-radius: 10px; margin: 20px 0;">
                 <li>Course details and curriculum</li>
                 <li>Batch timings and schedule</li>
-                <li>Fees structure and payment options</li>
+                <li>Course fee and payment options</li>
                 <li>Certification and placement assistance</li>
               </ul>
 
@@ -138,7 +133,6 @@ export async function POST(request: Request) {
                 <h3 style="margin-top: 0; color: #667eea;">Your Enquiry Details</h3>
                 <p style="margin: 5px 0;"><strong>Course:</strong> ${course}</p>
                 <p style="margin: 5px 0;"><strong>Duration:</strong> ${courseDuration}</p>
-                <p style="margin: 5px 0;"><strong>Investment:</strong> ${coursePrice}</p>
               </div>
 
               <div style="text-align: center; margin: 30px 0;">

@@ -171,7 +171,9 @@ export default function DevOpsWithAWSAI() {
     originalPrice: "85,000",
     instructor: "AWS ML Specialist & DevOps Professional with AI/ML expertise",
     nextBatch: "Starting Soon",
-    mode: ["Online", "Live Classes", "AWS ML Labs"]
+    mode: ["Online", "Live Classes", "AWS ML Labs"],
+    pdfUrl: "/pdfs/devops-with-aws-ai-syllabus.pdf",
+    pdfName: "DevOps with AWS and AI Syllabus"
   };
 
   return <CourseDetailPage course={courseData} />;

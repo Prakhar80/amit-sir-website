@@ -736,12 +736,6 @@ export default function ExploreCourses() {
                 <span className="text-white font-semibold text-xs">{course.certification}</span>
               </div>
             )}
-            {course.price && (
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-white/70">Price:</span>
-                <span className="text-white font-bold">{course.price}</span>
-              </div>
-            )}
           </div>
           
           {/* Features */}

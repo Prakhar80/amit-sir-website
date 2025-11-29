@@ -102,7 +102,9 @@ const rhcsaData = {
   ],
   instructor: "Red Hat Certified Engineer (RHCE)",
   nextBatch: "5th November 2025",
-  mode: ["Online", "Classroom"]
+  mode: ["Online", "Classroom"],
+  pdfUrl: "/pdfs/rhcsa-syllabus.pdf",
+  pdfName: "RHCSA Complete Course Syllabus & Study Guide"
 };
 
 export default function RHCSAPage() {

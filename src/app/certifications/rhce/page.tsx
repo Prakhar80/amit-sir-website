@@ -93,7 +93,9 @@ const rhceData = {
   ],
   instructor: "Red Hat Certified Architect (RHCA)",
   nextBatch: "18th November 2025",
-  mode: ["Online", "Classroom"]
+  mode: ["Online", "Classroom"],
+  pdfUrl: "/pdfs/rhce-ex294-syllabus.pdf",
+  pdfName: "RHCE EX-294 Syllabus"
 };
 
 export default function RHCEPage() {

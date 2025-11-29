@@ -142,7 +142,9 @@ export default function DevOpsWithAzure() {
     originalPrice: "65,000",
     instructor: "Microsoft Certified Azure Solutions Architect & DevOps Expert",
     nextBatch: "Starting Soon",
-    mode: ["Online", "Live Classes", "Azure Hands-on Labs"]
+    mode: ["Online", "Live Classes", "Azure Hands-on Labs"],
+    pdfUrl: "/pdfs/devops-with-azure-syllabus.pdf",
+    pdfName: "DevOps with Azure Syllabus"
   };
 
   return <CourseDetailPage course={courseData} />;

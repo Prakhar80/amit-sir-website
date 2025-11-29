@@ -133,7 +133,9 @@ export default function DevOpsWithAWS() {
     originalPrice: "65,000",
     instructor: "AWS Certified Solutions Architect & DevOps Professional",
     nextBatch: "Starting Soon",
-    mode: ["Online", "Live Classes", "AWS Hands-on Labs"]
+    mode: ["Online", "Live Classes", "AWS Hands-on Labs"],
+    pdfUrl: "/pdfs/devops-with-aws-syllabus.pdf",
+    pdfName: "DevOps with AWS Syllabus"
   };
 
   return <CourseDetailPage course={courseData} />;
