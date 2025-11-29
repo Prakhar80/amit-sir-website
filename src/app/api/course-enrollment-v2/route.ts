@@ -190,26 +190,18 @@ Contact channels: WhatsApp (8225852734) or Email (yyradhe751@gmail.com)
 
     return NextResponse.json({
       success: true,
-      message: 'Enrollment received! Payment instructions have been sent.',
+      message: 'Enrollment received! Our team will contact you shortly.',
       enrollmentId: enrollmentData.enrollmentId,
       emailStatus: emailResults,
-      paymentInfo: {
-        upiId: 'yravi8804@axl',
-        bank: 'Union Bank Of India - 0942',
-        amount: `₹${finalPrice.toLocaleString('en-IN')}`,
-        enrollmentId: enrollmentData.enrollmentId
-      },
       contactInfo: {
         whatsapp: '+91-8225852734',
         phone: '+91-9425094250',
         email: 'yyradhe751@gmail.com'
       },
       instructions: [
-        'Check your email for payment details',
-        'Pay via UPI: yravi8804@axl',
-        'Take screenshot after payment',
-        'Send screenshot to WhatsApp: +91-8225852734 or Email: yyradhe751@gmail.com',
-        'Confirmation within 1-2 hours'
+        'Our team will contact you within 24 hours',
+        'We will discuss course fee and payment options',
+        'Confirmation after enrollment is finalized'
       ]
     });
 
