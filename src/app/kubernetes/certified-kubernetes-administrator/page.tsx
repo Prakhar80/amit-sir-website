@@ -102,7 +102,9 @@ const kubernetesAdminData = {
   ],
   instructor: "Certified Kubernetes Administrator (CKA)",
   nextBatch: "9th December 2025",
-  mode: ["Online", "Intensive Bootcamp"]
+  mode: ["Online", "Intensive Bootcamp"],
+  pdfUrl: "/pdfs/cka-syllabus.pdf",
+  pdfName: "Certified Kubernetes Administrator (CKA) Syllabus"
 };
 
 export default function KubernetesAdminPage() {

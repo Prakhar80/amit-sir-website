@@ -127,7 +127,9 @@ const ccnaTrainingData = {
   ],
   instructor: "Cisco Certified Systems Instructor (CCSI)",
   nextBatch: "18th November 2025",
-  mode: ["Online", "Hands-on Labs"]
+  mode: ["Online", "Hands-on Labs"],
+  pdfUrl: "/pdfs/ccna-200-301-syllabus.pdf",
+  pdfName: "CCNA 200-301 Syllabus"
 };
 
 export default function CCNATrainingPage() {

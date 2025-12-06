@@ -127,7 +127,9 @@ const ccnpData = {
   ],
   instructor: "Cisco Certified Internetwork Expert (CCIE)",
   nextBatch: "25th November 2025",
-  mode: ["Online", "Advanced Labs"]
+  mode: ["Online", "Advanced Labs"],
+  pdfUrl: "/pdfs/ccnp-350-401-syllabus.pdf",
+  pdfName: "CCNP ENCOR 350-401 Syllabus"
 };
 
 export default function CCNPPage() {

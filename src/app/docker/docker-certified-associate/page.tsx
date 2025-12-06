@@ -102,7 +102,9 @@ const dockerDCAData = {
   ],
   instructor: "Docker Certified Professional",
   nextBatch: "12th November 2025",
-  mode: ["Online", "Weekend Batches"]
+  mode: ["Online", "Weekend Batches"],
+  pdfUrl: "/pdfs/dca-syllabus.pdf",
+  pdfName: "Docker Certified Associate (DCA) Syllabus"
 };
 
 export default function DockerDCAPage() {
