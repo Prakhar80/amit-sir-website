@@ -497,9 +497,13 @@ export default function ContactUs() {
               <button className="px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold rounded-xl hover:from-cyan-700 hover:to-blue-700 transition-all transform hover:scale-105">
                 Book Free Counseling
               </button>
-              <button className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold rounded-xl border border-white/20 hover:bg-white/20 transition-all">
+              <a 
+                href="/pdfs/LITC.pdf" 
+                download="LITC-Brochure.pdf"
+                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-bold rounded-xl border border-white/20 hover:bg-white/20 transition-all text-center"
+              >
                 Download Brochure
-              </button>
+              </a>
             </div>
           </div>
         </div>

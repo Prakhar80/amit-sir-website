@@ -852,9 +852,14 @@ export default function Home() {
                     </div>
                     <div>
                       <p className="text-white/80 text-sm leading-relaxed">
-                        Ground Floor, Metro Tower,<br />
-                        Near Mangal City, Behind Tinku Cafe,<br />
-                        Indore, MP, India - 452001
+                        <strong>Main Office:</strong><br />
+                        P13-14, Ground Floor, Metro Tower,<br />
+                        Vijay Nagar, Indore, MP - 452010
+                      </p>
+                      <p className="text-white/80 text-sm leading-relaxed mt-3">
+                        <strong>Second Office:</strong><br />
+                        G5, 10/102, Shri Balaji Center Building,<br />
+                        Station Road, Rau, Indore, MP - 453331
                       </p>
                     </div>
                   </div>
