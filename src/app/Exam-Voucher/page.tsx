@@ -203,22 +203,6 @@ export default function ExamVoucherPage() {
       icon: "CiscoLogo",
       color: "from-blue-600 to-cyan-500",
       path: "/cisco"
-    },
-    {
-      id: 13,
-      name: "Agentic AI Course",
-      company: "Software Development",
-      icon: "🤖",
-      color: "from-purple-600 to-pink-600",
-      path: "/pdfs/Agentic AI new course catalog.pdf"
-    },
-    {
-      id: 14,
-      name: "AI for Leaders",
-      company: "Software Development",
-      icon: "🎯",
-      color: "from-indigo-600 to-purple-600",
-      path: "/pdfs/AI for Leader.pdf"
     }
   ];
 
