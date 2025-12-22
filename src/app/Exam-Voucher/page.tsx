@@ -114,7 +114,7 @@ export default function ExamVoucherPage() {
       company: "IBM",
       icon: "IBMLogo",
       color: "from-blue-600 to-blue-800",
-      path: "/certifications"
+      path: "/ibm-certification"
     },
     {
       id: 2,
@@ -214,6 +214,20 @@ export default function ExamVoucherPage() {
         {/* Hero Section */}
         <section className="relative py-20 px-4 overflow-hidden bg-white">
           <div className="max-w-7xl mx-auto">
+            {/* Certiport Section */}
+            <div className="text-center mb-20">
+              <div className="flex flex-col items-center gap-8">
+                {/* Certiport Logo */}
+                <div className="flex justify-center">
+                  <img 
+                    src="/Certiport-Pearson-Logo-2016.png" 
+                    alt="Certiport Logo" 
+                    className="h-20 md:h-24 object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+
             {/* Get Certified Section */}
             <div className="text-center mb-16">
               <div className="flex items-center justify-center gap-4 mb-12">
