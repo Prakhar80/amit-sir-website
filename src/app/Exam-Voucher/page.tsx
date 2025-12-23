@@ -162,7 +162,7 @@ export default function ExamVoucherPage() {
       company: "Microsoft",
       icon: "MicrosoftLogo",
       color: "from-blue-500 to-indigo-600",
-      path: "/microsoft"
+      path: "/Exam-Voucher/microsoft-office-specialist"
     },
     {
       id: 8,
@@ -194,15 +194,15 @@ export default function ExamVoucherPage() {
       company: "Microsoft",
       icon: "MicrosoftLogo",
       color: "from-indigo-600 to-blue-700",
-      path: "/microsoft"
+      path: "/Exam-Voucher/microsoft-certified-fundamentals"
     },
     {
       id: 12,
-      name: "Cisco Certified Security Technician",
+      name: "Cisco Certified Support Technician",
       company: "Cisco",
       icon: "CiscoLogo",
       color: "from-blue-600 to-cyan-500",
-      path: "/cisco"
+      path: "/Exam-Voucher/cisco-certified-support-technician"
     }
   ];
 
