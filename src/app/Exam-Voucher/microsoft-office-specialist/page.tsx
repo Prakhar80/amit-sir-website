@@ -268,7 +268,7 @@ export default function MicrosoftOfficeSpecialistPage() {
                   <h3 className="font-semibold text-gray-900 mb-2 text-sm">
                     Microsoft Office Specialist – Excel Expert Certification
                   </h3>
-                  <p className="text-2xl font-bold text-gray-800">₹2,199</p>
+                  <p className="text-2xl font-bold text-gray-800">₹3,600+GST</p>
                 </div>
                 <div className="flex gap-2">
                   <button className="flex-1 bg-blue-800 text-white py-2 px-3 rounded text-sm font-medium hover:bg-blue-900 transition-colors">
@@ -298,7 +298,7 @@ export default function MicrosoftOfficeSpecialistPage() {
                   <h3 className="font-semibold text-gray-900 mb-2 text-sm">
                     Microsoft Office Specialist – Word Expert Certification
                   </h3>
-                  <p className="text-2xl font-bold text-gray-800">₹2,199</p>
+                  <p className="text-2xl font-bold text-gray-800">₹3,600+GST</p>
                 </div>
                 <div className="flex gap-2">
                   <button className="flex-1 bg-blue-800 text-white py-2 px-3 rounded text-sm font-medium hover:bg-blue-900 transition-colors">
@@ -328,7 +328,7 @@ export default function MicrosoftOfficeSpecialistPage() {
                   <h3 className="font-semibold text-gray-900 mb-2 text-sm">
                     Microsoft Office Specialist – PowerPoint Associate Certification
                   </h3>
-                  <p className="text-2xl font-bold text-gray-800">₹2,199</p>
+                  <p className="text-2xl font-bold text-gray-800">₹3,600+GST</p>
                 </div>
                 <div className="flex gap-2">
                   <button className="flex-1 bg-blue-800 text-white py-2 px-3 rounded text-sm font-medium hover:bg-blue-900 transition-colors">
@@ -358,7 +358,7 @@ export default function MicrosoftOfficeSpecialistPage() {
                   <h3 className="font-semibold text-gray-900 mb-2 text-sm">
                     Microsoft Office Specialist – Excel Associate Certification
                   </h3>
-                  <p className="text-2xl font-bold text-gray-800">₹2,199</p>
+                  <p className="text-2xl font-bold text-gray-800">₹3,600+GST</p>
                 </div>
                 <div className="flex gap-2">
                   <button className="flex-1 bg-blue-800 text-white py-2 px-3 rounded text-sm font-medium hover:bg-blue-900 transition-colors">
@@ -388,7 +388,7 @@ export default function MicrosoftOfficeSpecialistPage() {
                   <h3 className="font-semibold text-gray-900 mb-2 text-sm">
                     Microsoft Office Specialist – Word Associate Certification
                   </h3>
-                  <p className="text-2xl font-bold text-gray-800">₹2,199</p>
+                  <p className="text-2xl font-bold text-gray-800">₹3,600+GST</p>
                 </div>
                 <div className="flex gap-2">
                   <button className="flex-1 bg-blue-800 text-white py-2 px-3 rounded text-sm font-medium hover:bg-blue-900 transition-colors">
